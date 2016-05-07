@@ -47,12 +47,10 @@ namespace Rabin_Window.BL
         {
             BigInteger[] EncrypArr = Rabin.EncryptionBigText(content, OpenKey);
 
-            string output = "";
 
-            for (int i = 0; i < EncrypArr.Length; i++)
-                output += EncrypArr[i] + "\n";
+            string[] res = EncrypArr.Select(p => p + "").ToArray();
 
-            File.WriteAllText(filepath, output, encoding);
+            File.WriteAllLines(filepath, res, encoding);
 
         }
 

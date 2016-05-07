@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Rabin_Window.BL;
 
 namespace Rabin_Window
 {
@@ -16,7 +17,15 @@ namespace Rabin_Window
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+
+            MainForm form = new MainForm();
+            MessageService service = new MessageService();
+            FileManager manager = new FileManager();
+
+            MainPresentor presentor = new MainPresentor(form, manager, service);
+
+
+            Application.Run(form);
         }
     }
 }

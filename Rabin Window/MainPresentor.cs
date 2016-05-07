@@ -71,7 +71,11 @@ namespace Rabin_Window
 
         private void ImainForm_FileSaveClick(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            string content = _imainForm.Content;
+
+            _manager.SaveContent(content, _currentFilePath, _imainForm.SecretKeyOne * _imainForm.SecretKeyTwo);
+
+            _messageService.ShowMessage("Файл успешно сохранён");
         }
     }
 }
