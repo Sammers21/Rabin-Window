@@ -197,6 +197,7 @@
             this.Controls.Add(this.tbtSecretKey1);
             this.Name = "MainForm";
             this.Text = "Rabin Window";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);

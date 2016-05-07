@@ -136,5 +136,9 @@ namespace Rabin_Window
                 ContentChanged(this, EventArgs.Empty);
         }
 
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

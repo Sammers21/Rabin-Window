@@ -5,7 +5,17 @@ using System.Numerics;
 using System.Linq;
 namespace Rabin_Window.BL
 {
-    public class FileManager
+    public interface IFileManager
+    {
+        bool isExist(string filepath);
+        string GetContent(string path, BigInteger SecretKeyOne, BigInteger SecretKeyTwo);
+        string GetContent(string path, Encoding encoding, BigInteger SecretKeyOne, BigInteger SecretKeyTwo);
+        void SaveContent(string content, string filepath, BigInteger OpenKey);
+        void SaveContent(string content, string filepath, Encoding encoding, BigInteger OpenKey);
+        int GetSymbloCount(string content);
+    }
+
+    public class FileManager : IFileManager
     {
         private readonly Encoding _defaultEncoding = Encoding.GetEncoding(1251);
 
