@@ -30,7 +30,7 @@ namespace Rabin_Window.BL
 
         public void SaveContent(string content, string filepath, BigInteger OpenKey)
         {
-            return SaveContent(content, filepath, _defaultEncoding, OpenKey);
+            SaveContent(content, filepath, _defaultEncoding, OpenKey);
         }
 
         public void SaveContent(string content, string filepath, Encoding encoding, BigInteger OpenKey)
@@ -50,5 +50,6 @@ namespace Rabin_Window.BL
         {
             return content.Length;
         }
+
     }
 }

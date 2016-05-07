@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testsomelibs", "Testsomelib
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rabin Window", "Rabin Window\Rabin Window.csproj", "{074547F0-0349-4920-BCB6-BB76869634DC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rabin Window.BL", "Rabin Window.BL\Rabin Window.BL.csproj", "{E33469D8-177A-4692-BBF6-D8FC5E51BD3E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{074547F0-0349-4920-BCB6-BB76869634DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{074547F0-0349-4920-BCB6-BB76869634DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{074547F0-0349-4920-BCB6-BB76869634DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E33469D8-177A-4692-BBF6-D8FC5E51BD3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E33469D8-177A-4692-BBF6-D8FC5E51BD3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E33469D8-177A-4692-BBF6-D8FC5E51BD3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E33469D8-177A-4692-BBF6-D8FC5E51BD3E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

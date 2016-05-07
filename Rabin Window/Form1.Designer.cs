@@ -1,6 +1,6 @@
 ﻿namespace Rabin_Window
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -30,13 +30,13 @@
         {
             this.tbtSecretKey1 = new System.Windows.Forms.TextBox();
             this.tbtSecretKey2 = new System.Windows.Forms.TextBox();
-            this.tbtRedactor = new System.Windows.Forms.TextBox();
+            this.tbtContent = new System.Windows.Forms.TextBox();
             this.lblSecretKey1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.butSave = new System.Windows.Forms.Button();
             this.btnCancle = new System.Windows.Forms.Button();
             this.btnOpen = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbtFilePath = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnChoose = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
@@ -61,16 +61,17 @@
             this.tbtSecretKey2.Size = new System.Drawing.Size(100, 20);
             this.tbtSecretKey2.TabIndex = 2;
             // 
-            // tbtRedactor
+            // tbtContent
             // 
-            this.tbtRedactor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tbtContent.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbtRedactor.Location = new System.Drawing.Point(12, 67);
-            this.tbtRedactor.Multiline = true;
-            this.tbtRedactor.Name = "tbtRedactor";
-            this.tbtRedactor.Size = new System.Drawing.Size(892, 387);
-            this.tbtRedactor.TabIndex = 3;
+            this.tbtContent.Location = new System.Drawing.Point(12, 67);
+            this.tbtContent.Multiline = true;
+            this.tbtContent.Name = "tbtContent";
+            this.tbtContent.Size = new System.Drawing.Size(892, 387);
+            this.tbtContent.TabIndex = 3;
+            this.tbtContent.TextChanged += new System.EventHandler(this.tbtContent_TextChanged);
             // 
             // lblSecretKey1
             // 
@@ -101,6 +102,7 @@
             this.butSave.TabIndex = 6;
             this.butSave.Text = "Сохранить";
             this.butSave.UseVisualStyleBackColor = true;
+            this.butSave.Click += new System.EventHandler(this.butSave_Click);
             // 
             // btnCancle
             // 
@@ -111,6 +113,7 @@
             this.btnCancle.TabIndex = 8;
             this.btnCancle.Text = "В меню";
             this.btnCancle.UseVisualStyleBackColor = true;
+            this.btnCancle.Click += new System.EventHandler(this.btnCancle_Click);
             // 
             // btnOpen
             // 
@@ -121,15 +124,16 @@
             this.btnOpen.TabIndex = 9;
             this.btnOpen.Text = "Открыть";
             this.btnOpen.UseVisualStyleBackColor = true;
+            this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
             // 
-            // textBox1
+            // tbtFilePath
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.tbtFilePath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(98, 33);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(368, 20);
-            this.textBox1.TabIndex = 10;
+            this.tbtFilePath.Location = new System.Drawing.Point(98, 33);
+            this.tbtFilePath.Name = "tbtFilePath";
+            this.tbtFilePath.Size = new System.Drawing.Size(368, 20);
+            this.tbtFilePath.TabIndex = 10;
             // 
             // label1
             // 
@@ -149,6 +153,7 @@
             this.btnChoose.TabIndex = 12;
             this.btnChoose.Text = "Выбрать";
             this.btnChoose.UseVisualStyleBackColor = true;
+            this.btnChoose.Click += new System.EventHandler(this.btnChoose_Click);
             // 
             // statusStrip1
             // 
@@ -173,7 +178,7 @@
             this.lblNuberCount.Name = "lblNuberCount";
             this.lblNuberCount.Size = new System.Drawing.Size(0, 17);
             // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -181,17 +186,17 @@
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.btnChoose);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbtFilePath);
             this.Controls.Add(this.btnOpen);
             this.Controls.Add(this.btnCancle);
             this.Controls.Add(this.butSave);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblSecretKey1);
-            this.Controls.Add(this.tbtRedactor);
+            this.Controls.Add(this.tbtContent);
             this.Controls.Add(this.tbtSecretKey2);
             this.Controls.Add(this.tbtSecretKey1);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "MainForm";
+            this.Text = "Rabin Window";
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -203,13 +208,13 @@
 
         private System.Windows.Forms.TextBox tbtSecretKey1;
         private System.Windows.Forms.TextBox tbtSecretKey2;
-        private System.Windows.Forms.TextBox tbtRedactor;
+        private System.Windows.Forms.TextBox tbtContent;
         private System.Windows.Forms.Label lblSecretKey1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button butSave;
         private System.Windows.Forms.Button btnCancle;
         private System.Windows.Forms.Button btnOpen;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbtFilePath;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnChoose;
         private System.Windows.Forms.StatusStrip statusStrip1;
