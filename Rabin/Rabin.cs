@@ -69,6 +69,7 @@ namespace RabinLib
 
             foreach (BigInteger b in Text)
             {
+
                 byte[] cur = DecryptionBytes(b, q, p);
 
                 foreach (byte by in cur)
@@ -379,8 +380,7 @@ namespace RabinLib
         public static string DecryptSign(BigInteger S, BigInteger OpenKey, out bool res)
         {
             BigInteger u = BigInteger.ModPow(S, 2, OpenKey), U = BigInteger.ModPow(u, 1, 8);
-
-
+            
 
             BigInteger w;
 
@@ -606,16 +606,10 @@ namespace RabinLib
                     result.Add(sqares[i]);
                 }
             }
-
-
-            if (result.Count() == 1)
-            {
-
-
-
-            }
+          /*  if (result.Count() == 1)
+            { }
             else
-                throw new Exception("Не удалось однозначно установить исходное соощение");
+                throw new Exception("Не удалось однозначно установить часть исходного соощение");*/
 
             return result;
 

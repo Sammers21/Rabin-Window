@@ -18,10 +18,12 @@ namespace Rabin_Window
         BigInteger SecretKeyOne { get; set; }
         BigInteger SecretKeyTwo { get; set; }
         void SetSymbolCount(int count);
+        void SetByteCount(int count);
         event EventHandler FileOpenClick;
         event EventHandler FileSaveClick;
         event EventHandler ContentChanged;
         event EventHandler GoToMenuClick;
+        event EventHandler FileSaveAsClick;
 
     }
 
@@ -79,10 +81,15 @@ namespace Rabin_Window
         public event EventHandler FileOpenClick;
         public event EventHandler FileSaveClick;
         public event EventHandler GoToMenuClick;
+        public event EventHandler FileSaveAsClick;
 
         public void SetSymbolCount(int count)
         {
             lblNuberCount.Text = count + "";
+        }
+        public void SetByteCount(int count)
+        {
+            lblbyteCountNumber.Text = count + "";
         }
         #endregion
 
@@ -139,6 +146,22 @@ namespace Rabin_Window
         private void MainForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnSaveAs_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+
+            saveFileDialog.Filter = "Текстовые файлы|*.txt|Все файлы|*.*";
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                tbtFilePath.Text = saveFileDialog.FileName;
+
+                if (FileSaveAsClick != null)
+                    FileSaveAsClick(this, EventArgs.Empty);
+            }
+           
         }
     }
 }

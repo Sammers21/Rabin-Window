@@ -26,11 +26,25 @@ namespace Rabin_Window
             _imainForm.FileOpenClick += ImainForm_FileOpenClick;
             _imainForm.GoToMenuClick += ImainForm_GoToMenuClick;
             _imainForm.ContentChanged += ImainForm_ContentChanged;
+            _imainForm.FileSaveAsClick += _imainForm_FileSaveAsClick;
+        }
+
+        private void _imainForm_FileSaveAsClick(object sender, EventArgs e)
+        {
+            string content = _imainForm.Content;
+
+            _currentFilePath = _imainForm.FilePath;
+
+
+            _manager.SaveContent(content, _currentFilePath, _imainForm.SecretKeyOne * _imainForm.SecretKeyTwo);
+
+            _messageService.ShowMessage("Файл успешно сохранён");
         }
 
         private void ImainForm_ContentChanged(object sender, EventArgs e)
         {
             _imainForm.SetSymbolCount(_imainForm.Content.Length);
+            _imainForm.SetByteCount(Encoding.UTF8.GetBytes(_imainForm.Content).Length);
         }
 
         private void ImainForm_GoToMenuClick(object sender, EventArgs e)

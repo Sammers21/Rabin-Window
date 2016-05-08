@@ -42,6 +42,9 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblConstNumbCount = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblNuberCount = new System.Windows.Forms.ToolStripStatusLabel();
+            this.btnSaveAs = new System.Windows.Forms.Button();
+            this.lblNumberByteConutConst = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblbyteCountNumber = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,6 +55,7 @@
             this.tbtSecretKey1.Name = "tbtSecretKey1";
             this.tbtSecretKey1.Size = new System.Drawing.Size(100, 20);
             this.tbtSecretKey1.TabIndex = 0;
+            this.tbtSecretKey1.Text = "3004913";
             // 
             // tbtSecretKey2
             // 
@@ -60,6 +64,7 @@
             this.tbtSecretKey2.Name = "tbtSecretKey2";
             this.tbtSecretKey2.Size = new System.Drawing.Size(100, 20);
             this.tbtSecretKey2.TabIndex = 2;
+            this.tbtSecretKey2.Text = "20979403";
             // 
             // tbtContent
             // 
@@ -69,6 +74,7 @@
             this.tbtContent.Location = new System.Drawing.Point(12, 67);
             this.tbtContent.Multiline = true;
             this.tbtContent.Name = "tbtContent";
+            this.tbtContent.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.tbtContent.Size = new System.Drawing.Size(892, 387);
             this.tbtContent.TabIndex = 3;
             this.tbtContent.TextChanged += new System.EventHandler(this.tbtContent_TextChanged);
@@ -159,7 +165,9 @@
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lblConstNumbCount,
-            this.lblNuberCount});
+            this.lblNuberCount,
+            this.lblNumberByteConutConst,
+            this.lblbyteCountNumber});
             this.statusStrip1.Location = new System.Drawing.Point(0, 495);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(916, 22);
@@ -178,11 +186,33 @@
             this.lblNuberCount.Name = "lblNuberCount";
             this.lblNuberCount.Size = new System.Drawing.Size(0, 17);
             // 
+            // btnSaveAs
+            // 
+            this.btnSaveAs.Location = new System.Drawing.Point(734, 460);
+            this.btnSaveAs.Name = "btnSaveAs";
+            this.btnSaveAs.Size = new System.Drawing.Size(89, 23);
+            this.btnSaveAs.TabIndex = 14;
+            this.btnSaveAs.Text = "Соранить как";
+            this.btnSaveAs.UseVisualStyleBackColor = true;
+            this.btnSaveAs.Click += new System.EventHandler(this.btnSaveAs_Click);
+            // 
+            // lblNumberByteConutConst
+            // 
+            this.lblNumberByteConutConst.Name = "lblNumberByteConutConst";
+            this.lblNumberByteConutConst.Size = new System.Drawing.Size(102, 17);
+            this.lblNumberByteConutConst.Text = "Количества байт:";
+            // 
+            // lblbyteCountNumber
+            // 
+            this.lblbyteCountNumber.Name = "lblbyteCountNumber";
+            this.lblbyteCountNumber.Size = new System.Drawing.Size(0, 17);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(916, 517);
+            this.Controls.Add(this.btnSaveAs);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.btnChoose);
             this.Controls.Add(this.label1);
@@ -221,6 +251,9 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel lblConstNumbCount;
         private System.Windows.Forms.ToolStripStatusLabel lblNuberCount;
+        private System.Windows.Forms.ToolStripStatusLabel lblNumberByteConutConst;
+        private System.Windows.Forms.ToolStripStatusLabel lblbyteCountNumber;
+        private System.Windows.Forms.Button btnSaveAs;
     }
 }
 
