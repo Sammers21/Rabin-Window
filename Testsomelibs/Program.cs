@@ -11,7 +11,8 @@ namespace Testsomelibs
         {
             do
             {
-                try {
+                try
+                {
                     bool rx;
                     do
                     {
@@ -30,7 +31,7 @@ namespace Testsomelibs
                         rx = Rabin.Miller_Rabin_Test(rnd);
 
                         sw.Stop();
-                        using (FileStream fs = new FileStream("KEYs", FileMode.OpenOrCreate, FileAccess.ReadWrite))
+                        using (FileStream fs = new FileStream("KEYs.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite))
                         {
                             if (rx)
                                 Console.ForegroundColor = ConsoleColor.Green;
@@ -47,20 +48,46 @@ namespace Testsomelibs
                         }
                         if (rx)
                         {
-                            using (FileStream fs = new FileStream("KEYSTRUE", FileMode.OpenOrCreate, FileAccess.ReadWrite))
+                            using (FileStream fs = new FileStream("KEYSTRUE.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite))
                             {
 
                                 fs.Seek(fs.Length, SeekOrigin.Begin);
                                 using (StreamWriter sww = new StreamWriter(fs))
                                 {
-                                    sww.WriteLine("\n"+sw.Elapsed.TotalSeconds + "\t" + rx+"\n");
+                                    sww.WriteLine("\n" + sw.Elapsed.TotalSeconds + "\t" + rx + "\n");
                                     sww.WriteLine("\n\n" + rnd + "\n");
+                                }
+                            }
+                            if (BigInteger.ModPow(rnd, 1, 8) == 3)
+                            {
+                                using (FileStream fs = new FileStream("KEYSTRUEMOD3.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite))
+                                {
+
+                                    fs.Seek(fs.Length, SeekOrigin.Begin);
+                                    using (StreamWriter sww = new StreamWriter(fs))
+                                    {
+                                        sww.WriteLine("\n" + sw.Elapsed.TotalSeconds + "\t" + rx + "\n");
+                                        sww.WriteLine("\n\n" + rnd + "\n");
+                                    }
+                                }
+                            }
+                            else if (BigInteger.ModPow(rnd, 1, 8) == 7)
+                            {
+                                using (FileStream fs = new FileStream("KEYSTRUEMOD7.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite))
+                                {
+
+                                    fs.Seek(fs.Length, SeekOrigin.Begin);
+                                    using (StreamWriter sww = new StreamWriter(fs))
+                                    {
+                                        sww.WriteLine("\n" + sw.Elapsed.TotalSeconds + "\t" + rx + "\n");
+                                        sww.WriteLine("\n\n" + rnd + "\n");
+                                    }
                                 }
                             }
                         }
                     } while (!rx);
                 }
-                catch(Exception e)
+                catch (Exception e)
                 {
                     Console.WriteLine(e.Message);
                 }
