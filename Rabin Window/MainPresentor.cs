@@ -15,6 +15,8 @@ namespace Rabin_Window
 
         private string _currentFilePath;
 
+
+
         public MainPresentor(IMainForm imainForm, IFileManager _manager, IMessageService _messageService)
         {
             this._imainForm = imainForm;

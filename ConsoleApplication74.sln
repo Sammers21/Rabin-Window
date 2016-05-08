@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rabin Window", "Rabin Windo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rabin Window.BL", "Rabin Window.BL\Rabin Window.BL.csproj", "{E33469D8-177A-4692-BBF6-D8FC5E51BD3E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StartMenu", "StartMenu\StartMenu.csproj", "{F9D0D93F-8E22-4F53-98DD-069FE4792A91}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeyGenerator", "KeyGenerator\KeyGenerator.csproj", "{ABF5ABF3-C18A-45D4-8F5A-3E028826121A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{E33469D8-177A-4692-BBF6-D8FC5E51BD3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E33469D8-177A-4692-BBF6-D8FC5E51BD3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E33469D8-177A-4692-BBF6-D8FC5E51BD3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9D0D93F-8E22-4F53-98DD-069FE4792A91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9D0D93F-8E22-4F53-98DD-069FE4792A91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9D0D93F-8E22-4F53-98DD-069FE4792A91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9D0D93F-8E22-4F53-98DD-069FE4792A91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABF5ABF3-C18A-45D4-8F5A-3E028826121A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABF5ABF3-C18A-45D4-8F5A-3E028826121A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABF5ABF3-C18A-45D4-8F5A-3E028826121A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABF5ABF3-C18A-45D4-8F5A-3E028826121A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

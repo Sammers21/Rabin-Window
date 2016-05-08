@@ -380,7 +380,7 @@ namespace RabinLib
         public static string DecryptSign(BigInteger S, BigInteger OpenKey, out bool res)
         {
             BigInteger u = BigInteger.ModPow(S, 2, OpenKey), U = BigInteger.ModPow(u, 1, 8);
-            
+
 
             BigInteger w;
 
@@ -606,51 +606,16 @@ namespace RabinLib
                     result.Add(sqares[i]);
                 }
             }
-          /*  if (result.Count() == 1)
-            { }
-            else
-                throw new Exception("Не удалось однозначно установить часть исходного соощение");*/
+            /*  if (result.Count() == 1)
+              { }
+              else
+                  throw new Exception("Не удалось однозначно установить часть исходного соощение");*/
 
             return result;
 
         }
 
-        /// <summary>
-        /// Выбор случайного числа в промежутке от 1 до p
-        /// </summary>
-        /// <param name="p">Промежуток генерации</param>
-        /// <returns>Число в промежутке от 1 до p</returns>
-        static BigInteger Rand(BigInteger p)
-        {
 
-            BigInteger result;
-            string str = "";
-            bool flag = true;
-
-            int[] pio = (p + "").ToCharArray().Select(k => int.Parse(k + "")).ToArray();
-
-            for (int i = 0; i < pio.Length; i++)
-            {
-
-                int x;
-                if (flag)
-                {
-                    x = rnd.Next(1, pio[i] + 1);
-                    if (x < pio[i])
-                        flag = false;
-
-                }
-                else
-                {
-                    x = rnd.Next(1, 10);
-                }
-
-                str += x;
-            }
-
-            result = BigInteger.Parse(str);
-            return result;
-        }
 
         /// <summary>
         /// Выбор рандомного числа B
@@ -944,39 +909,46 @@ namespace RabinLib
                 X++;
             } while (true);
 
-            BigInteger S, T;
+            return Miller_Rabin_Test(Number, X);
 
-            Step2PowSumnT(Number, out T, out S);
 
-            //цикл А
-            for (int i = 0; i < X; i++)
+        }
+
+        /// <summary>
+        /// Выбор случайного числа в промежутке от 1 до p
+        /// </summary>
+        /// <param name="p">Промежуток генерации</param>
+        /// <returns>Число в промежутке от 1 до p</returns>
+        public static BigInteger Rand(BigInteger p)
+        {
+
+            BigInteger result;
+            string str = "";
+            bool flag = true;
+
+            int[] pio = (p + "").ToCharArray().Select(k => int.Parse(k + "")).ToArray();
+
+            for (int i = 0; i < pio.Length; i++)
             {
-                bool flagtoCycleA = false;
-                BigInteger a = Rand(Number - 1);
-                BigInteger x = BigInteger.ModPow(a, T, Number);
-                if (x == 1 || x == Number - 1)
-                    continue;
-                //цикл Б
-                for (int k = 0; k < (S - 1); k++)
-                {
-                    x = BigInteger.ModPow(x, 2, Number);
-                    if (x == 1)
-                        return false;
-                    if (x == Number - 1)
-                    {
-                        flagtoCycleA = true;
-                        break;
-                    }
 
+                int x;
+                if (flag)
+                {
+                    x = rnd.Next(1, pio[i] + 1);
+                    if (x < pio[i])
+                        flag = false;
 
                 }
-                if (flagtoCycleA)
-                    continue;
-                return false;
+                else
+                {
+                    x = rnd.Next(1, 10);
+                }
 
+                str += x;
             }
 
-            return true;
+            result = BigInteger.Parse(str);
+            return result;
         }
 
         #endregion

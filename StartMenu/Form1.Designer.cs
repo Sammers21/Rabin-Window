@@ -1,6 +1,6 @@
 ﻿namespace StartMenu
 {
-    partial class Form1
+    partial class MenuForm
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -28,12 +28,47 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnGoToRabin = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(39, 62);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(422, 365);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Вычислить ключи";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnGoToRabin
+            // 
+            this.btnGoToRabin.Location = new System.Drawing.Point(669, 129);
+            this.btnGoToRabin.Name = "btnGoToRabin";
+            this.btnGoToRabin.Size = new System.Drawing.Size(136, 152);
+            this.btnGoToRabin.TabIndex = 1;
+            this.btnGoToRabin.Text = "У меня есть открыты";
+            this.btnGoToRabin.UseVisualStyleBackColor = true;
+            this.btnGoToRabin.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // MenuForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "Form1";
+            this.ClientSize = new System.Drawing.Size(876, 508);
+            this.Controls.Add(this.btnGoToRabin);
+            this.Controls.Add(this.button1);
+            this.Name = "MenuForm";
+            this.Text = "MenuForm";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnGoToRabin;
     }
 }
 
