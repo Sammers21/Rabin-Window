@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Rabin_Window.BL;
+using StartMenu;
 
 namespace Rabin_Window
 {
@@ -21,11 +22,12 @@ namespace Rabin_Window
             MainForm form = new MainForm();
             MessageService service = new MessageService();
             FileManager manager = new FileManager();
+            MenuForm menuForm = new MenuForm();
 
-            MainPresentor presentor = new MainPresentor(form, manager, service);
+            MainPresentor presentor = new MainPresentor(form, manager, service,menuForm);
 
 
-            Application.Run(form);
+            Application.Run(menuForm);
         }
     }
 }

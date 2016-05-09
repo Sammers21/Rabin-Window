@@ -91,6 +91,10 @@
       <Project>{d6cb7fae-0fc1-4d20-af14-8679ea5be01e}</Project>
       <Name>RabinLib</Name>
     </ProjectReference>
+    <ProjectReference Include="..\StartMenu\StartMenu.csproj">
+      <Project>{f9d0d93f-8e22-4f53-98dd-069fe4792a91}</Project>
+      <Name>StartMenu</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

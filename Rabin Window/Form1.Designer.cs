@@ -42,9 +42,9 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblConstNumbCount = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblNuberCount = new System.Windows.Forms.ToolStripStatusLabel();
-            this.btnSaveAs = new System.Windows.Forms.Button();
             this.lblNumberByteConutConst = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblbyteCountNumber = new System.Windows.Forms.ToolStripStatusLabel();
+            this.btnSaveAs = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,7 +55,7 @@
             this.tbtSecretKey1.Name = "tbtSecretKey1";
             this.tbtSecretKey1.Size = new System.Drawing.Size(100, 20);
             this.tbtSecretKey1.TabIndex = 0;
-            this.tbtSecretKey1.Text = "3004913";
+            this.tbtSecretKey1.Text = "\n75991659469669399729589138312377821674662277419121\n";
             // 
             // tbtSecretKey2
             // 
@@ -64,7 +64,7 @@
             this.tbtSecretKey2.Name = "tbtSecretKey2";
             this.tbtSecretKey2.Size = new System.Drawing.Size(100, 20);
             this.tbtSecretKey2.TabIndex = 2;
-            this.tbtSecretKey2.Text = "20979403";
+            this.tbtSecretKey2.Text = "\n69773266793919287397246897815433892593184632816833\n";
             // 
             // tbtContent
             // 
@@ -186,16 +186,6 @@
             this.lblNuberCount.Name = "lblNuberCount";
             this.lblNuberCount.Size = new System.Drawing.Size(0, 17);
             // 
-            // btnSaveAs
-            // 
-            this.btnSaveAs.Location = new System.Drawing.Point(734, 460);
-            this.btnSaveAs.Name = "btnSaveAs";
-            this.btnSaveAs.Size = new System.Drawing.Size(89, 23);
-            this.btnSaveAs.TabIndex = 14;
-            this.btnSaveAs.Text = "Соранить как";
-            this.btnSaveAs.UseVisualStyleBackColor = true;
-            this.btnSaveAs.Click += new System.EventHandler(this.btnSaveAs_Click);
-            // 
             // lblNumberByteConutConst
             // 
             this.lblNumberByteConutConst.Name = "lblNumberByteConutConst";
@@ -206,6 +196,17 @@
             // 
             this.lblbyteCountNumber.Name = "lblbyteCountNumber";
             this.lblbyteCountNumber.Size = new System.Drawing.Size(0, 17);
+            // 
+            // btnSaveAs
+            // 
+            this.btnSaveAs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSaveAs.Location = new System.Drawing.Point(734, 460);
+            this.btnSaveAs.Name = "btnSaveAs";
+            this.btnSaveAs.Size = new System.Drawing.Size(89, 23);
+            this.btnSaveAs.TabIndex = 14;
+            this.btnSaveAs.Text = "Соранить как";
+            this.btnSaveAs.UseVisualStyleBackColor = true;
+            this.btnSaveAs.Click += new System.EventHandler(this.btnSaveAs_Click);
             // 
             // MainForm
             // 

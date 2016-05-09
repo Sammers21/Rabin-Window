@@ -19,6 +19,8 @@ namespace Rabin_Window
         BigInteger SecretKeyTwo { get; set; }
         void SetSymbolCount(int count);
         void SetByteCount(int count);
+        void ShowForm();
+        void SkipForm();
         event EventHandler FileOpenClick;
         event EventHandler FileSaveClick;
         event EventHandler ContentChanged;
@@ -91,6 +93,14 @@ namespace Rabin_Window
         {
             lblbyteCountNumber.Text = count + "";
         }
+        public void ShowForm()
+        {
+            Visible = true;
+        }
+        public void SkipForm()
+        {
+            Visible = false;
+        }
         #endregion
 
         public MainForm()
@@ -135,6 +145,8 @@ namespace Rabin_Window
         {
             if (GoToMenuClick != null)
                 GoToMenuClick(this, EventArgs.Empty);
+          
+
         }
 
         private void tbtContent_TextChanged(object sender, EventArgs e)
@@ -161,7 +173,7 @@ namespace Rabin_Window
                 if (FileSaveAsClick != null)
                     FileSaveAsClick(this, EventArgs.Empty);
             }
-           
+
         }
     }
 }
