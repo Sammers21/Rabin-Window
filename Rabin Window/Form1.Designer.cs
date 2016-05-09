@@ -56,7 +56,7 @@
             this.tbtSecretKey1.Name = "tbtSecretKey1";
             this.tbtSecretKey1.Size = new System.Drawing.Size(100, 20);
             this.tbtSecretKey1.TabIndex = 0;
-            this.tbtSecretKey1.Text = "\n75991659469669399729589138312377821674662277419121\n";
+            this.tbtSecretKey1.Text = "\n67139473157512273617293294729232263747915868329239\n";
             // 
             // tbtSecretKey2
             // 
@@ -65,7 +65,7 @@
             this.tbtSecretKey2.Name = "tbtSecretKey2";
             this.tbtSecretKey2.Size = new System.Drawing.Size(100, 20);
             this.tbtSecretKey2.TabIndex = 2;
-            this.tbtSecretKey2.Text = "\n69773266793919287397246897815433892593184632816833\n";
+            this.tbtSecretKey2.Text = "\n\n14837455474356933483426383787384866415758746169291\n";
             // 
             // tbtContent
             // 

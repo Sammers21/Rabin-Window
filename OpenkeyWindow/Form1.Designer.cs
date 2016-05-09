@@ -49,6 +49,8 @@
             this.tbtOpenKey.Name = "tbtOpenKey";
             this.tbtOpenKey.Size = new System.Drawing.Size(551, 20);
             this.tbtOpenKey.TabIndex = 0;
+            this.tbtOpenKey.Text = "996178943546370874434617223229136763398160471277070982109844996503871352809714589" +
+    "187947039619199549";
             // 
             // butSave
             // 

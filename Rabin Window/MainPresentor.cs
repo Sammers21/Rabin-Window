@@ -118,7 +118,7 @@ namespace Rabin_Window
 
                 _currentFilePath = filepath;
 
-                //ToDo проверка ключей
+                
 
                 string Content = _manager.GetContent(_currentFilePath, _imainForm.SecretKeyOne, _imainForm.SecretKeyTwo);
 
