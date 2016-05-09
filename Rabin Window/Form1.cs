@@ -186,6 +186,7 @@ namespace Rabin_Window
 
         public void FormGoToWorkMode()
         {
+        
 
             btnCancle.Enabled = false;
             btnChoose.Enabled = false;

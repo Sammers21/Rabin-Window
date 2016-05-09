@@ -71,6 +71,8 @@ namespace Rabin_Window
         {
             try
             {
+             
+
                 _imainForm.FormGoToWorkMode();
                 string filepath = _imainForm.FilePath;
                 bool isExist = _manager.isExist(filepath);
@@ -91,11 +93,17 @@ namespace Rabin_Window
 
                 _imainForm.Content = Content;
                 _imainForm.SetSymbolCount(count);
-                _imainForm.FormGoToReadyMode();
+              
             }
             catch (Exception ex)
             {
+               
                 _messageService.ShowError(ex.Message);
+            }
+            finally
+            {
+                _imainForm.FormGoToReadyMode();
+
             }
         }
 
