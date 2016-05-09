@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Rabin_Window.BL;
 using StartMenu;
-
+using OpenkeyWindow;
 namespace Rabin_Window
 {
     static class Program
@@ -23,8 +23,9 @@ namespace Rabin_Window
             MessageService service = new MessageService();
             FileManager manager = new FileManager();
             MenuForm menuForm = new MenuForm();
+            OpenKeyForm openKeyWindow = new OpenKeyForm();
 
-            MainPresentor presentor = new MainPresentor(form, manager, service,menuForm);
+            MainPresentor presentor = new MainPresentor(form, manager, service, menuForm, openKeyWindow);
 
 
             Application.Run(menuForm);

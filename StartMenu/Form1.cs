@@ -15,6 +15,7 @@ namespace StartMenu
         void ShowForm();
         void SkipForm();
         event EventHandler GoToMainForm;
+        event EventHandler GoToOpenKeyForm;
     }
     public partial class MenuForm : Form, IMenuForm
     {
@@ -32,6 +33,8 @@ namespace StartMenu
         private void button1_Click(object sender, EventArgs e)
         {
 
+            if (GoToOpenKeyForm != null)
+                GoToOpenKeyForm(this, EventArgs.Empty);
         }
         #region IMenuForm
         public void ShowForm()
@@ -43,6 +46,7 @@ namespace StartMenu
             Visible = false;
         }
         public event EventHandler GoToMainForm;
+        public event EventHandler GoToOpenKeyForm;
         #endregion
 
         private void MenuForm_Load(object sender, EventArgs e)

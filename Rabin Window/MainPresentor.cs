@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Rabin_Window.BL;
 using StartMenu;
+using OpenkeyWindow;
 
 namespace Rabin_Window
 {
@@ -14,15 +15,17 @@ namespace Rabin_Window
         private readonly IFileManager _manager;
         private readonly IMessageService _messageService;
         private readonly IMenuForm _imenuForm;
+        private readonly IOpenKeyForm _iopenkeyForm;
 
         private string _currentFilePath;
 
-        public MainPresentor(IMainForm imainForm, IFileManager _manager, IMessageService _messageService, IMenuForm imenuForm)
+        public MainPresentor(IMainForm imainForm, IFileManager _manager, IMessageService _messageService, IMenuForm imenuForm, IOpenKeyForm iopenkey)
         {
             this._imainForm = imainForm;
             this._manager = _manager;
             this._messageService = _messageService;
             this._imenuForm = imenuForm;
+            this._iopenkeyForm = iopenkey;
 
             _imainForm.SetSymbolCount(0);
             _imainForm.SetByteCount(0);
@@ -32,7 +35,37 @@ namespace Rabin_Window
             _imainForm.GoToMenuClick += ImainForm_GoToMenuClick;
             _imainForm.ContentChanged += ImainForm_ContentChanged;
             _imainForm.FileSaveAsClick += _imainForm_FileSaveAsClick;
+
             _imenuForm.GoToMainForm += _imenuForm_GoToMainForm;
+            _imenuForm.GoToOpenKeyForm += _imenuForm_GoToOpenKeyForm;
+
+            _iopenkeyForm.GoToMenuClick += _iopenkeyForm_GoToMenuClick;
+            _iopenkeyForm.FileSaveAsClick += _iopenkeyForm_FileSaveAsClick;
+
+        }
+
+        private void _iopenkeyForm_FileSaveAsClick(object sender, EventArgs e)
+        {
+            string content = _iopenkeyForm.Content;
+
+            _currentFilePath = _iopenkeyForm.path;
+
+
+            _manager.SaveContent(content, _currentFilePath, _iopenkeyForm.OpenKey);
+
+            _messageService.ShowMessage("Файл успешно сохранён");
+        }
+
+        private void _iopenkeyForm_GoToMenuClick(object sender, EventArgs e)
+        {
+            _imenuForm.ShowForm();
+            _iopenkeyForm.SkipForm();
+        }
+
+        private void _imenuForm_GoToOpenKeyForm(object sender, EventArgs e)
+        {
+            _imenuForm.SkipForm();
+            _iopenkeyForm.ShowForm();
         }
 
         private void _imenuForm_GoToMainForm(object sender, EventArgs e)
@@ -71,7 +104,7 @@ namespace Rabin_Window
         {
             try
             {
-             
+
 
                 _imainForm.FormGoToWorkMode();
                 string filepath = _imainForm.FilePath;
@@ -93,11 +126,11 @@ namespace Rabin_Window
 
                 _imainForm.Content = Content;
                 _imainForm.SetSymbolCount(count);
-              
+
             }
             catch (Exception ex)
             {
-               
+
                 _messageService.ShowError(ex.Message);
             }
             finally

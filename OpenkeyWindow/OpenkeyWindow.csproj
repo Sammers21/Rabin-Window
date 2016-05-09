@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{074547F0-0349-4920-BCB6-BB76869634DC}</ProjectGuid>
+    <ProjectGuid>{960BDACF-FCF7-4115-94D2-8D6F16990A33}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Rabin_Window</RootNamespace>
-    <AssemblyName>Rabin Window</AssemblyName>
+    <RootNamespace>OpenkeyWindow</RootNamespace>
+    <AssemblyName>OpenkeyWindow</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -53,8 +53,6 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainPresentor.cs" />
-    <Compile Include="MessageService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -81,24 +79,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\OpenkeyWindow\OpenkeyWindow.csproj">
-      <Project>{960bdacf-fcf7-4115-94d2-8d6f16990a33}</Project>
-      <Name>OpenkeyWindow</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Rabin Window.BL\Rabin Window.BL.csproj">
-      <Project>{e33469d8-177a-4692-bbf6-d8fc5e51bd3e}</Project>
-      <Name>Rabin Window.BL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Rabin\RabinLib.csproj">
-      <Project>{d6cb7fae-0fc1-4d20-af14-8679ea5be01e}</Project>
-      <Name>RabinLib</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\StartMenu\StartMenu.csproj">
-      <Project>{f9d0d93f-8e22-4f53-98dd-069fe4792a91}</Project>
-      <Name>StartMenu</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

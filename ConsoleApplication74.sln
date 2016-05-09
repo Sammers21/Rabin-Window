@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rabin Window.BL", "Rabin Wi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StartMenu", "StartMenu\StartMenu.csproj", "{F9D0D93F-8E22-4F53-98DD-069FE4792A91}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenkeyWindow", "OpenkeyWindow\OpenkeyWindow.csproj", "{960BDACF-FCF7-4115-94D2-8D6F16990A33}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{F9D0D93F-8E22-4F53-98DD-069FE4792A91}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F9D0D93F-8E22-4F53-98DD-069FE4792A91}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F9D0D93F-8E22-4F53-98DD-069FE4792A91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{960BDACF-FCF7-4115-94D2-8D6F16990A33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{960BDACF-FCF7-4115-94D2-8D6F16990A33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{960BDACF-FCF7-4115-94D2-8D6F16990A33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{960BDACF-FCF7-4115-94D2-8D6F16990A33}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
