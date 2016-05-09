@@ -17,13 +17,14 @@ namespace Rabin_Window
         string Content { get; set; }
         BigInteger SecretKeyOne { get; set; }
         BigInteger SecretKeyTwo { get; set; }
-        
+
         void SetSymbolCount(int count);
         void SetByteCount(int count);
         void ShowForm();
-        void SkipForm();
-       /* void ToOpneKeyMode();
-        void ToSecretKeyMode();*/
+        void SkipForm();        
+        void FormGoToWorkMode();
+        void FormGoToReadyMode();
+
         event EventHandler FileOpenClick;
         event EventHandler FileSaveClick;
         event EventHandler ContentChanged;
@@ -109,14 +110,15 @@ namespace Rabin_Window
         public MainForm()
         {
             InitializeComponent();
+
+
         }
+
 
         private void toolStripStatusLabel1_Click(object sender, EventArgs e)
         {
 
         }
-
-
 
         private void btnChoose_Click(object sender, EventArgs e)
         {
@@ -127,8 +129,10 @@ namespace Rabin_Window
             {
                 tbtFilePath.Text = openFileDialog.FileName;
 
+               
                 if (FileOpenClick != null)
                     FileOpenClick(this, EventArgs.Empty);
+             
             }
         }
 
@@ -136,6 +140,7 @@ namespace Rabin_Window
         {
             if (FileOpenClick != null)
                 FileOpenClick(this, EventArgs.Empty);
+    
         }
 
         private void butSave_Click(object sender, EventArgs e)
@@ -148,7 +153,7 @@ namespace Rabin_Window
         {
             if (GoToMenuClick != null)
                 GoToMenuClick(this, EventArgs.Empty);
-          
+
 
         }
 
@@ -178,5 +183,38 @@ namespace Rabin_Window
             }
 
         }
+
+        public void FormGoToWorkMode()
+        {
+
+            btnCancle.Enabled = false;
+            btnChoose.Enabled = false;
+            btnOpen.Enabled = false;
+            btnSaveAs.Enabled = false;
+            butSave.Enabled = false;
+
+            tbtFilePath.Enabled = false;
+            tbtSecretKey1.Enabled = false;
+            tbtSecretKey2.Enabled = false;
+            tbtContent.Enabled = false;
+
+
+        }
+        public void FormGoToReadyMode()
+        {
+
+            btnCancle.Enabled = true;
+            btnChoose.Enabled = true;
+            btnOpen.Enabled = true;
+            btnSaveAs.Enabled = true;
+            butSave.Enabled = true;
+
+            tbtFilePath.Enabled = true;
+            tbtSecretKey1.Enabled = true;
+            tbtSecretKey2.Enabled = true;
+            tbtContent.Enabled = true;
+        }
+
+
     }
 }

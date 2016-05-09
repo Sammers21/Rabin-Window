@@ -45,6 +45,7 @@
             this.lblNumberByteConutConst = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblbyteCountNumber = new System.Windows.Forms.ToolStripStatusLabel();
             this.btnSaveAs = new System.Windows.Forms.Button();
+            this.Worker = new System.ComponentModel.BackgroundWorker();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -255,6 +256,8 @@
         private System.Windows.Forms.ToolStripStatusLabel lblNumberByteConutConst;
         private System.Windows.Forms.ToolStripStatusLabel lblbyteCountNumber;
         private System.Windows.Forms.Button btnSaveAs;
+        private System.ComponentModel.BackgroundWorker Worker;
+        private System.Windows.Forms.ProgressBar progresBar;
     }
 }
 
