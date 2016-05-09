@@ -17,10 +17,13 @@ namespace Rabin_Window
         string Content { get; set; }
         BigInteger SecretKeyOne { get; set; }
         BigInteger SecretKeyTwo { get; set; }
+        
         void SetSymbolCount(int count);
         void SetByteCount(int count);
         void ShowForm();
         void SkipForm();
+        void ToOpneKeyMode();
+        void ToSecretKeyMode();
         event EventHandler FileOpenClick;
         event EventHandler FileSaveClick;
         event EventHandler ContentChanged;
