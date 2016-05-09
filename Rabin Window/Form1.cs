@@ -22,8 +22,8 @@ namespace Rabin_Window
         void SetByteCount(int count);
         void ShowForm();
         void SkipForm();
-        void ToOpneKeyMode();
-        void ToSecretKeyMode();
+       /* void ToOpneKeyMode();
+        void ToSecretKeyMode();*/
         event EventHandler FileOpenClick;
         event EventHandler FileSaveClick;
         event EventHandler ContentChanged;
