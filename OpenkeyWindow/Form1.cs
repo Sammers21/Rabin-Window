@@ -58,15 +58,9 @@ namespace OpenkeyWindow
 
         public string path
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
+            get;
 
-            set
-            {
-                throw new NotImplementedException();
-            }
+            set;
         }
 
         public void SetSymbolCount(int count)
