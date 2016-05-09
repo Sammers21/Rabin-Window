@@ -10,7 +10,13 @@ using System.Windows.Forms;
 
 namespace StartMenu
 {
-    public partial class MenuForm : Form
+    public interface IMenuForm
+    {
+        void ShowForm();
+        void SkipForm();
+        event EventHandler GoToMainForm;
+    }
+    public partial class MenuForm : Form, IMenuForm
     {
         public MenuForm()
         {
@@ -19,10 +25,27 @@ namespace StartMenu
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            if (GoToMainForm != null)
+                GoToMainForm(this, EventArgs.Empty);
         }
 
         private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+        #region IMenuForm
+        public void ShowForm()
+        {
+            Visible = true;
+        }
+        public void SkipForm()
+        {
+            Visible = false;
+        }
+        public event EventHandler GoToMainForm;
+        #endregion
+
+        private void MenuForm_Load(object sender, EventArgs e)
         {
 
         }

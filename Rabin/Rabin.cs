@@ -45,8 +45,14 @@ namespace RabinLib
 
                 int siZE = i == cycleCount - 1 ? falgOK ? size : (textUTF8.Length % size) : size;
 
+
+                BigInteger pow2 = 1;
+
                 for (int j = 0; j < siZE; j++)
-                    result[i] += textUTF8[iteratoR++] * (BigInteger)Math.Pow(2, 8 * j);
+                {
+                    result[i] += textUTF8[iteratoR++] * pow2;
+                    pow2 *= 256;
+                }
 
                 result[i] = MX(result[i]);
                 result[i] = BigInteger.ModPow(result[i], 2, OpenyKey);

@@ -19,7 +19,7 @@ namespace Testsomelibs
                         var sw = new Stopwatch();
 
                         string rs = "";
-                        for (int i = 0; i < 500; i++)
+                        for (int i = 0; i < 50; i++)
                         {
                             rs += "9";
                         }
@@ -31,7 +31,7 @@ namespace Testsomelibs
                         rx = Rabin.Miller_Rabin_Test(rnd);
 
                         sw.Stop();
-                        using (FileStream fs = new FileStream("KEYs.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite))
+                        using (FileStream fs = new FileStream("KEYS50.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite))
                         {
                             if (rx)
                                 Console.ForegroundColor = ConsoleColor.Green;
@@ -48,7 +48,7 @@ namespace Testsomelibs
                         }
                         if (rx)
                         {
-                            using (FileStream fs = new FileStream("KEYSTRUE.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite))
+                            using (FileStream fs = new FileStream("KEYSTRUE50.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite))
                             {
 
                                 fs.Seek(fs.Length, SeekOrigin.Begin);
@@ -60,7 +60,7 @@ namespace Testsomelibs
                             }
                             if (BigInteger.ModPow(rnd, 1, 8) == 3)
                             {
-                                using (FileStream fs = new FileStream("KEYSTRUEMOD3.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite))
+                                using (FileStream fs = new FileStream("KEYSTRUEMOD350.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite))
                                 {
 
                                     fs.Seek(fs.Length, SeekOrigin.Begin);
@@ -73,7 +73,7 @@ namespace Testsomelibs
                             }
                             else if (BigInteger.ModPow(rnd, 1, 8) == 7)
                             {
-                                using (FileStream fs = new FileStream("KEYSTRUEMOD7.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite))
+                                using (FileStream fs = new FileStream("KEYSTRUEMOD750.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite))
                                 {
 
                                     fs.Seek(fs.Length, SeekOrigin.Begin);

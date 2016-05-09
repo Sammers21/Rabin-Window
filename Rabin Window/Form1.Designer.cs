@@ -188,6 +188,7 @@
             // 
             // btnSaveAs
             // 
+            this.btnSaveAs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSaveAs.Location = new System.Drawing.Point(734, 460);
             this.btnSaveAs.Name = "btnSaveAs";
             this.btnSaveAs.Size = new System.Drawing.Size(89, 23);
