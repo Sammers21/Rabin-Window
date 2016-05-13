@@ -50,6 +50,7 @@
             this.tbtKeyLength1.Name = "tbtKeyLength1";
             this.tbtKeyLength1.Size = new System.Drawing.Size(61, 20);
             this.tbtKeyLength1.TabIndex = 1;
+            this.tbtKeyLength1.TextChanged += new System.EventHandler(this.tbtKeyLength1_TextChanged);
             // 
             // lblType2
             // 
@@ -66,6 +67,7 @@
             this.tbtkeylength2.Name = "tbtkeylength2";
             this.tbtkeylength2.Size = new System.Drawing.Size(61, 20);
             this.tbtkeylength2.TabIndex = 3;
+            this.tbtkeylength2.TextChanged += new System.EventHandler(this.tbtkeylength2_TextChanged);
             // 
             // btnGENERATEMK
             // 
