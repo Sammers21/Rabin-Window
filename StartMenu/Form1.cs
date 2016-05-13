@@ -58,7 +58,8 @@ namespace StartMenu
 
         private void btnGenKeys_Click(object sender, EventArgs e)
         {
-
+            if (GoToGenerateKeysWindow != null)
+                GoToGenerateKeysWindow(this, EventArgs.Empty);
         }
     }
 }

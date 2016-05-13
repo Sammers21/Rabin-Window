@@ -38,9 +38,15 @@ namespace Rabin_Window
 
             _imenuForm.GoToMainForm += _imenuForm_GoToMainForm;
             _imenuForm.GoToOpenKeyForm += _imenuForm_GoToOpenKeyForm;
+            _imenuForm.GoToGenerateKeysWindow += _imenuForm_GoToGenerateKeysWindow;
 
             _iopenkeyForm.GoToMenuClick += _iopenkeyForm_GoToMenuClick;
             _iopenkeyForm.FileSaveAsClick += _iopenkeyForm_FileSaveAsClick;
+
+        }
+
+        private void _imenuForm_GoToGenerateKeysWindow(object sender, EventArgs e)
+        {
 
         }
 
