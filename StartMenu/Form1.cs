@@ -16,6 +16,7 @@ namespace StartMenu
         void SkipForm();
         event EventHandler GoToMainForm;
         event EventHandler GoToOpenKeyForm;
+        event EventHandler GoToGenerateKeysWindow;
     }
     public partial class MenuForm : Form, IMenuForm
     {
@@ -47,9 +48,15 @@ namespace StartMenu
         }
         public event EventHandler GoToMainForm;
         public event EventHandler GoToOpenKeyForm;
+        public event EventHandler GoToGenerateKeysWindow;
         #endregion
 
         private void MenuForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnGenKeys_Click(object sender, EventArgs e)
         {
 
         }

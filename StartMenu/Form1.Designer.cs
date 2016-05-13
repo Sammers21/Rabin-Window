@@ -30,13 +30,14 @@
         {
             this.button1 = new System.Windows.Forms.Button();
             this.btnGoToRabin = new System.Windows.Forms.Button();
+            this.btnGenKeys = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(39, 62);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(337, 365);
+            this.button1.Size = new System.Drawing.Size(337, 295);
             this.button1.TabIndex = 0;
             this.button1.Text = "У меня есть открытый ключ";
             this.button1.UseVisualStyleBackColor = true;
@@ -46,17 +47,30 @@
             // 
             this.btnGoToRabin.Location = new System.Drawing.Point(524, 62);
             this.btnGoToRabin.Name = "btnGoToRabin";
-            this.btnGoToRabin.Size = new System.Drawing.Size(340, 365);
+            this.btnGoToRabin.Size = new System.Drawing.Size(340, 295);
             this.btnGoToRabin.TabIndex = 1;
             this.btnGoToRabin.Text = "У меня есть закрытый ключ";
             this.btnGoToRabin.UseVisualStyleBackColor = true;
             this.btnGoToRabin.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // btnGenKeys
+            // 
+            this.btnGenKeys.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnGenKeys.Location = new System.Drawing.Point(260, 375);
+            this.btnGenKeys.Name = "btnGenKeys";
+            this.btnGenKeys.Size = new System.Drawing.Size(351, 121);
+            this.btnGenKeys.TabIndex = 2;
+            this.btnGenKeys.Text = "Сгенерировать закрытый и открытый ключ";
+            this.btnGenKeys.UseVisualStyleBackColor = true;
+            this.btnGenKeys.Click += new System.EventHandler(this.btnGenKeys_Click);
             // 
             // MenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(876, 508);
+            this.Controls.Add(this.btnGenKeys);
             this.Controls.Add(this.btnGoToRabin);
             this.Controls.Add(this.button1);
             this.Name = "MenuForm";
@@ -70,6 +84,7 @@
 
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnGoToRabin;
+        private System.Windows.Forms.Button btnGenKeys;
     }
 }
 
