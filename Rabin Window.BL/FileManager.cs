@@ -8,6 +8,7 @@ namespace Rabin_Window.BL
     public interface IFileManager
     {
         bool isExist(string filepath);
+        void SaveContent(string content, string filepath);
         string GetContent(string path, BigInteger SecretKeyOne, BigInteger SecretKeyTwo);
         string GetContent(string path, Encoding encoding, BigInteger SecretKeyOne, BigInteger SecretKeyTwo);
         void SaveContent(string content, string filepath, BigInteger OpenKey);
@@ -52,6 +53,10 @@ namespace Rabin_Window.BL
 
             File.WriteAllLines(filepath, res, encoding);
 
+        }
+        public void SaveContent(string content, string filepath)
+        {
+            File.WriteAllText(filepath, content,_defaultEncoding);
         }
 
         public int GetSymbloCount(string content)
