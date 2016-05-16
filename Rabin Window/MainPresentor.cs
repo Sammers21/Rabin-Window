@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 using Rabin_Window.BL;
 using StartMenu;
 using OpenkeyWindow;
+using GenerateKeyWindow;
 
 namespace Rabin_Window
 {
     class MainPresentor
     {
+        private readonly IGenerateKeyWindow _iGenerate;
         private readonly IMainForm _imainForm;
         private readonly IFileManager _manager;
         private readonly IMessageService _messageService;
@@ -19,8 +21,9 @@ namespace Rabin_Window
 
         private string _currentFilePath;
 
-        public MainPresentor(IMainForm imainForm, IFileManager _manager, IMessageService _messageService, IMenuForm imenuForm, IOpenKeyForm iopenkey)
+        public MainPresentor(IMainForm imainForm, IFileManager _manager, IMessageService _messageService, IMenuForm imenuForm, IOpenKeyForm iopenkey,IGenerateKeyWindow igkWondow)
         {
+            _iGenerate = igkWondow;
             this._imainForm = imainForm;
             this._manager = _manager;
             this._messageService = _messageService;
@@ -43,11 +46,21 @@ namespace Rabin_Window
             _iopenkeyForm.GoToMenuClick += _iopenkeyForm_GoToMenuClick;
             _iopenkeyForm.FileSaveAsClick += _iopenkeyForm_FileSaveAsClick;
 
+            _iGenerate.PressOk += _iGenerate_PressOk;
+        }
+
+        private void _iGenerate_PressOk(object sender, EventArgs e)
+        {
+            string keys2 = RabinLib.Rabin.gen2Keys(_iGenerate.Key1, _iGenerate.Key2);
+            _manager.SaveContent(keys2, _iGenerate.path);
+            _iGenerate.CloseFrom();
+            _imenuForm.ShowForm();
         }
 
         private void _imenuForm_GoToGenerateKeysWindow(object sender, EventArgs e)
         {
-
+            _iGenerate.ShowForm();
+            _imenuForm.SkipForm();
         }
 
         private void _iopenkeyForm_FileSaveAsClick(object sender, EventArgs e)
