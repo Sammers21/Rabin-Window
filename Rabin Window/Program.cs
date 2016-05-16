@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using Rabin_Window.BL;
 using StartMenu;
 using OpenkeyWindow;
+using GenerateKeyWindow;
 namespace Rabin_Window
 {
     static class Program
@@ -19,13 +20,14 @@ namespace Rabin_Window
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
+            Form1 genkeyWondow = new Form1();
             MainForm form = new MainForm();
             MessageService service = new MessageService();
             FileManager manager = new FileManager();
             MenuForm menuForm = new MenuForm();
             OpenKeyForm openKeyWindow = new OpenKeyForm();
 
-            MainPresentor presentor = new MainPresentor(form, manager, service, menuForm, openKeyWindow);
+            MainPresentor presentor = new MainPresentor(form, manager, service, menuForm, openKeyWindow,genkeyWondow);
 
 
             Application.Run(menuForm);
