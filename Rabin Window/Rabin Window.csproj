@@ -85,6 +85,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GenerateKeyWindow\GenerateKeyWindow.csproj">
+      <Project>{c8556f90-9bff-4373-beaf-cc9bd549105e}</Project>
+      <Name>GenerateKeyWindow</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OpenkeyWindow\OpenkeyWindow.csproj">
       <Project>{960bdacf-fcf7-4115-94d2-8d6f16990a33}</Project>
       <Name>OpenkeyWindow</Name>

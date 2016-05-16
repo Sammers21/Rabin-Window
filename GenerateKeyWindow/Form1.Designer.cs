@@ -83,13 +83,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(326, 291);
+            this.ClientSize = new System.Drawing.Size(334, 291);
             this.Controls.Add(this.btnGENERATEMK);
             this.Controls.Add(this.tbtkeylength2);
             this.Controls.Add(this.lblType2);
             this.Controls.Add(this.tbtKeyLength1);
             this.Controls.Add(this.lblTypeLegth);
+            this.MaximumSize = new System.Drawing.Size(350, 330);
+            this.MinimumSize = new System.Drawing.Size(350, 330);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();
