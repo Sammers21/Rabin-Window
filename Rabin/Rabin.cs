@@ -957,6 +957,37 @@ namespace RabinLib
             return result;
         }
 
+        public static string GeneRateKey(int symbCount)
+        {
+            bool rx=false;
+
+
+            string rs = "";
+            do
+            {
+                rs = "";
+                for (int i = 0; i < symbCount; i++)
+                {
+                    rs += "9";
+                }
+                BigInteger k99 = BigInteger.Parse(rs);
+                BigInteger rnd = Rabin.Rand(k99);
+                rx = Rabin.Miller_Rabin_Test(rnd);
+                if (rx)
+                {
+                    rs = rnd + "";
+                    break;
+                }
+            } while (true);
+
+            return rs;
+        }
+
+        public static string gen2Keys(int symb1, int symb2)
+        {
+            return GeneRateKey(symb1) + " " + GeneRateKey(symb2);
+        }
+
         #endregion
 
         #region Inactive methods
