@@ -52,7 +52,7 @@
             // tbtSecretKey1
             // 
             this.tbtSecretKey1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbtSecretKey1.Location = new System.Drawing.Point(688, 30);
+            this.tbtSecretKey1.Location = new System.Drawing.Point(756, 30);
             this.tbtSecretKey1.Name = "tbtSecretKey1";
             this.tbtSecretKey1.Size = new System.Drawing.Size(100, 20);
             this.tbtSecretKey1.TabIndex = 0;
@@ -61,7 +61,7 @@
             // tbtSecretKey2
             // 
             this.tbtSecretKey2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbtSecretKey2.Location = new System.Drawing.Point(804, 30);
+            this.tbtSecretKey2.Location = new System.Drawing.Point(872, 30);
             this.tbtSecretKey2.Name = "tbtSecretKey2";
             this.tbtSecretKey2.Size = new System.Drawing.Size(100, 20);
             this.tbtSecretKey2.TabIndex = 2;
@@ -76,7 +76,7 @@
             this.tbtContent.Multiline = true;
             this.tbtContent.Name = "tbtContent";
             this.tbtContent.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.tbtContent.Size = new System.Drawing.Size(892, 387);
+            this.tbtContent.Size = new System.Drawing.Size(960, 431);
             this.tbtContent.TabIndex = 3;
             this.tbtContent.TextChanged += new System.EventHandler(this.tbtContent_TextChanged);
             // 
@@ -84,7 +84,7 @@
             // 
             this.lblSecretKey1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblSecretKey1.AutoSize = true;
-            this.lblSecretKey1.Location = new System.Drawing.Point(692, 9);
+            this.lblSecretKey1.Location = new System.Drawing.Point(760, 9);
             this.lblSecretKey1.Name = "lblSecretKey1";
             this.lblSecretKey1.Size = new System.Drawing.Size(96, 13);
             this.lblSecretKey1.TabIndex = 4;
@@ -94,7 +94,7 @@
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(801, 9);
+            this.label2.Location = new System.Drawing.Point(869, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(96, 13);
             this.label2.TabIndex = 5;
@@ -103,7 +103,7 @@
             // butSave
             // 
             this.butSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.butSave.Location = new System.Drawing.Point(829, 460);
+            this.butSave.Location = new System.Drawing.Point(897, 504);
             this.butSave.Name = "butSave";
             this.butSave.Size = new System.Drawing.Size(75, 23);
             this.butSave.TabIndex = 6;
@@ -114,7 +114,7 @@
             // btnCancle
             // 
             this.btnCancle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnCancle.Location = new System.Drawing.Point(12, 460);
+            this.btnCancle.Location = new System.Drawing.Point(12, 504);
             this.btnCancle.Name = "btnCancle";
             this.btnCancle.Size = new System.Drawing.Size(75, 23);
             this.btnCancle.TabIndex = 8;
@@ -125,7 +125,7 @@
             // btnOpen
             // 
             this.btnOpen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOpen.Location = new System.Drawing.Point(553, 30);
+            this.btnOpen.Location = new System.Drawing.Point(621, 30);
             this.btnOpen.Name = "btnOpen";
             this.btnOpen.Size = new System.Drawing.Size(75, 23);
             this.btnOpen.TabIndex = 9;
@@ -139,7 +139,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbtFilePath.Location = new System.Drawing.Point(98, 33);
             this.tbtFilePath.Name = "tbtFilePath";
-            this.tbtFilePath.Size = new System.Drawing.Size(368, 20);
+            this.tbtFilePath.Size = new System.Drawing.Size(436, 20);
             this.tbtFilePath.TabIndex = 10;
             // 
             // label1
@@ -154,7 +154,7 @@
             // btnChoose
             // 
             this.btnChoose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnChoose.Location = new System.Drawing.Point(472, 31);
+            this.btnChoose.Location = new System.Drawing.Point(540, 31);
             this.btnChoose.Name = "btnChoose";
             this.btnChoose.Size = new System.Drawing.Size(75, 23);
             this.btnChoose.TabIndex = 12;
@@ -169,9 +169,9 @@
             this.lblNuberCount,
             this.lblNumberByteConutConst,
             this.lblbyteCountNumber});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 495);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 539);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(916, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(984, 22);
             this.statusStrip1.TabIndex = 13;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -201,7 +201,7 @@
             // btnSaveAs
             // 
             this.btnSaveAs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSaveAs.Location = new System.Drawing.Point(734, 460);
+            this.btnSaveAs.Location = new System.Drawing.Point(802, 504);
             this.btnSaveAs.Name = "btnSaveAs";
             this.btnSaveAs.Size = new System.Drawing.Size(89, 23);
             this.btnSaveAs.TabIndex = 14;
@@ -213,7 +213,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(916, 517);
+            this.ClientSize = new System.Drawing.Size(984, 561);
             this.Controls.Add(this.btnSaveAs);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.btnChoose);
@@ -227,7 +227,9 @@
             this.Controls.Add(this.tbtContent);
             this.Controls.Add(this.tbtSecretKey2);
             this.Controls.Add(this.tbtSecretKey1);
+            this.MinimumSize = new System.Drawing.Size(660, 360);
             this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Rabin Window";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.statusStrip1.ResumeLayout(false);

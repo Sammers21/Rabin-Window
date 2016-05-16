@@ -47,7 +47,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbtOpenKey.Location = new System.Drawing.Point(301, 12);
             this.tbtOpenKey.Name = "tbtOpenKey";
-            this.tbtOpenKey.Size = new System.Drawing.Size(551, 20);
+            this.tbtOpenKey.Size = new System.Drawing.Size(671, 20);
             this.tbtOpenKey.TabIndex = 0;
             this.tbtOpenKey.Text = "996178943546370874434617223229136763398160471277070982109844996503871352809714589" +
     "187947039619199549";
@@ -70,7 +70,7 @@
             this.tbtContent.Location = new System.Drawing.Point(0, 46);
             this.tbtContent.Multiline = true;
             this.tbtContent.Name = "tbtContent";
-            this.tbtContent.Size = new System.Drawing.Size(864, 483);
+            this.tbtContent.Size = new System.Drawing.Size(984, 490);
             this.tbtContent.TabIndex = 2;
             // 
             // statusStrip1
@@ -80,9 +80,9 @@
             this.lblSymbolCount,
             this.lblByteCountConst,
             this.lblByte});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 532);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 539);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(864, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(984, 22);
             this.statusStrip1.TabIndex = 3;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -134,14 +134,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(864, 554);
+            this.ClientSize = new System.Drawing.Size(984, 561);
             this.Controls.Add(this.btnGoToMenu);
             this.Controls.Add(this.lblOpenkey);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.tbtContent);
             this.Controls.Add(this.butSave);
             this.Controls.Add(this.tbtOpenKey);
+            this.MinimumSize = new System.Drawing.Size(660, 360);
             this.Name = "OpenKeyForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Окно шифровки информации";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.statusStrip1.ResumeLayout(false);

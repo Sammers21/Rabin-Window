@@ -35,7 +35,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(39, 62);
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.button1.Location = new System.Drawing.Point(27, 12);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(337, 295);
             this.button1.TabIndex = 0;
@@ -45,7 +47,9 @@
             // 
             // btnGoToRabin
             // 
-            this.btnGoToRabin.Location = new System.Drawing.Point(524, 62);
+            this.btnGoToRabin.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnGoToRabin.Location = new System.Drawing.Point(632, 12);
             this.btnGoToRabin.Name = "btnGoToRabin";
             this.btnGoToRabin.Size = new System.Drawing.Size(340, 295);
             this.btnGoToRabin.TabIndex = 1;
@@ -57,9 +61,9 @@
             // 
             this.btnGenKeys.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnGenKeys.Location = new System.Drawing.Point(260, 375);
+            this.btnGenKeys.Location = new System.Drawing.Point(260, 428);
             this.btnGenKeys.Name = "btnGenKeys";
-            this.btnGenKeys.Size = new System.Drawing.Size(351, 121);
+            this.btnGenKeys.Size = new System.Drawing.Size(459, 121);
             this.btnGenKeys.TabIndex = 2;
             this.btnGenKeys.Text = "Сгенерировать закрытый и открытый ключ";
             this.btnGenKeys.UseVisualStyleBackColor = true;
@@ -69,11 +73,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(876, 508);
+            this.ClientSize = new System.Drawing.Size(984, 561);
             this.Controls.Add(this.btnGenKeys);
             this.Controls.Add(this.btnGoToRabin);
             this.Controls.Add(this.button1);
+            this.MinimumSize = new System.Drawing.Size(660, 360);
             this.Name = "MenuForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MenuForm";
             this.Load += new System.EventHandler(this.MenuForm_Load);
             this.ResumeLayout(false);
