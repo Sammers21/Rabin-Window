@@ -30,10 +30,12 @@ namespace Rabin_Window.BL
         {
             return GetContent(path, _defaultEncoding, SecretKeyOne, SecretKeyTwo);
         }
+
         public string GetContent(string path)
         {
            return File.ReadAllText(path, _defaultEncoding);
         }
+
         public string GetContent(string path, Encoding encoding, BigInteger SecretKeyOne, BigInteger SecretKeyTwo)
         {
             BigInteger[] conten = File.ReadAllLines(path, encoding).Select(p => BigInteger.Parse(p)).ToArray();
@@ -58,6 +60,7 @@ namespace Rabin_Window.BL
             File.WriteAllLines(filepath, res, encoding);
 
         }
+
         public void SaveContent(string content, string filepath)
         {
             File.WriteAllText(filepath, content,_defaultEncoding);
