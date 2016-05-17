@@ -13,41 +13,43 @@ namespace GenerateKeyWindow
 
     public interface IGenerateKeyWindow
     {
-        int Key1 { get; set; }
-        int Key2 { get; set; }
-        String path { get; set; }
+        string Key1 { get; set; }
+        string Key2 { get; set; }
+        String pathOpenKey { get; set; }
+        String pathSecretkey { get; set; }
 
         void ShowForm();
         void CloseFrom();
 
-        
+
 
         event EventHandler PressOk;
     }
     public partial class Form1 : Form, IGenerateKeyWindow
     {
-        public String path { get; set; }
+        public String pathOpenKey { get; set; }
+        public String pathSecretkey { get; set; }
 
-        public int Key1
+        public string Key1
         {
             get
             {
-                return int.Parse(tbtKeyLength1.Text);
+                return tbtKeyLength1.Text;
             }
             set
             {
-                tbtKeyLength1.Text = value + "";
+                tbtKeyLength1.Text = value;
             }
         }
-        public int Key2
+        public string Key2
         {
             get
             {
-                return int.Parse(tbtkeylength2.Text);
+                return tbtkeylength2.Text;
             }
             set
             {
-                tbtkeylength2.Text = value + "";
+                tbtkeylength2.Text = value;
             }
         }
 
@@ -66,8 +68,16 @@ namespace GenerateKeyWindow
 
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
-                path = saveFileDialog.FileName;
-                if (PressOk != null)
+                pathSecretkey = saveFileDialog.FileName;
+            }
+            SaveFileDialog saveFileDialog2 = new SaveFileDialog();
+
+            saveFileDialog2.Filter = "Открытый ключ|*.openkey";
+
+            if (saveFileDialog2.ShowDialog() == DialogResult.OK)
+            {
+                pathOpenKey = saveFileDialog2.FileName;
+                if(PressOk!=null)
                 {
                     PressOk(this, EventArgs.Empty);
                 }
@@ -76,17 +86,18 @@ namespace GenerateKeyWindow
 
         private void tbtkeylength2_TextChanged(object sender, EventArgs e)
         {
-            if (Key1 > 50)
+            if (int.Parse(Key1) > 50)
             {
-                Key1 = 10;
+                Key1 = 10+"";
                 MessageBox.Show("Слишком большое количество симовов в ключе", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            } }
+            }
+        }
 
         private void tbtKeyLength1_TextChanged(object sender, EventArgs e)
         {
-            if (Key2 > 50)
+            if (int.Parse(Key2) > 50)
             {
-                Key2 = 10;
+                Key2 = 10+"";
                 MessageBox.Show("Слишком большое количество симовов в ключе", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -94,18 +105,14 @@ namespace GenerateKeyWindow
         public void ShowForm()
         {
             Visible = true;
-            tbtKeyLength1.Text = "";
-            tbtkeylength2.Text = "";
+            Key1 = 10+"";
+            Key2 = 10+"";
         }
 
         public void CloseFrom()
         {
             Visible = false;
         }
-        public string Gen2Keys(int lenght1, int length2)
-        {
-            string res = "";
-            return res;
-        }
+     
     }
 }

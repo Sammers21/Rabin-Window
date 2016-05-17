@@ -14,6 +14,7 @@ namespace Rabin_Window
     interface IMainForm
     {
         string FilePath { get; }
+        string SecretkeyPath { get; set; }
         string Content { get; set; }
         BigInteger SecretKeyOne { get; set; }
         BigInteger SecretKeyTwo { get; set; }
@@ -21,7 +22,7 @@ namespace Rabin_Window
         void SetSymbolCount(int count);
         void SetByteCount(int count);
         void ShowForm();
-        void SkipForm();        
+        void SkipForm();
         void FormGoToWorkMode();
         void FormGoToReadyMode();
 
@@ -30,6 +31,7 @@ namespace Rabin_Window
         event EventHandler ContentChanged;
         event EventHandler GoToMenuClick;
         event EventHandler FileSaveAsClick;
+        event EventHandler SecretKeyClick;
 
     }
 
@@ -56,6 +58,7 @@ namespace Rabin_Window
                 return tbtFilePath.Text;
             }
         }
+        public string SecretkeyPath { get; set; }
 
         public BigInteger SecretKeyOne
         {
@@ -88,6 +91,7 @@ namespace Rabin_Window
         public event EventHandler FileSaveClick;
         public event EventHandler GoToMenuClick;
         public event EventHandler FileSaveAsClick;
+        public event EventHandler SecretKeyClick;
 
         public void SetSymbolCount(int count)
         {
@@ -129,10 +133,10 @@ namespace Rabin_Window
             {
                 tbtFilePath.Text = openFileDialog.FileName;
 
-               
+
                 if (FileOpenClick != null)
                     FileOpenClick(this, EventArgs.Empty);
-             
+
             }
         }
 
@@ -140,7 +144,7 @@ namespace Rabin_Window
         {
             if (FileOpenClick != null)
                 FileOpenClick(this, EventArgs.Empty);
-    
+
         }
 
         private void butSave_Click(object sender, EventArgs e)
@@ -186,7 +190,7 @@ namespace Rabin_Window
 
         public void FormGoToWorkMode()
         {
-        
+
 
             btnCancle.Enabled = false;
             btnChoose.Enabled = false;
@@ -201,6 +205,7 @@ namespace Rabin_Window
 
 
         }
+
         public void FormGoToReadyMode()
         {
 
@@ -216,6 +221,20 @@ namespace Rabin_Window
             tbtContent.Enabled = true;
         }
 
+        private void btnLoadKeyFromFile_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Секретный ключ|*.secretkey";
 
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                SecretkeyPath = openFileDialog.FileName;
+
+
+                if (SecretKeyClick != null)
+                    SecretKeyClick(this, EventArgs.Empty);
+
+            }
+        }
     }
 }

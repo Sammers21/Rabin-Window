@@ -9,6 +9,7 @@ namespace Rabin_Window.BL
     {
         bool isExist(string filepath);
         void SaveContent(string content, string filepath);
+        string GetContent(string path);
         string GetContent(string path, BigInteger SecretKeyOne, BigInteger SecretKeyTwo);
         string GetContent(string path, Encoding encoding, BigInteger SecretKeyOne, BigInteger SecretKeyTwo);
         void SaveContent(string content, string filepath, BigInteger OpenKey);
@@ -29,7 +30,10 @@ namespace Rabin_Window.BL
         {
             return GetContent(path, _defaultEncoding, SecretKeyOne, SecretKeyTwo);
         }
-
+        public string GetContent(string path)
+        {
+           return File.ReadAllText(path, _defaultEncoding);
+        }
         public string GetContent(string path, Encoding encoding, BigInteger SecretKeyOne, BigInteger SecretKeyTwo)
         {
             BigInteger[] conten = File.ReadAllLines(path, encoding).Select(p => BigInteger.Parse(p)).ToArray();

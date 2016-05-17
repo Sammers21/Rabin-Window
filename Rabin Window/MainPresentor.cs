@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Numerics;
 using Rabin_Window.BL;
 using StartMenu;
 using OpenkeyWindow;
@@ -21,7 +21,7 @@ namespace Rabin_Window
 
         private string _currentFilePath;
 
-        public MainPresentor(IMainForm imainForm, IFileManager _manager, IMessageService _messageService, IMenuForm imenuForm, IOpenKeyForm iopenkey,IGenerateKeyWindow igkWondow)
+        public MainPresentor(IMainForm imainForm, IFileManager _manager, IMessageService _messageService, IMenuForm imenuForm, IOpenKeyForm iopenkey, IGenerateKeyWindow igkWondow)
         {
             _iGenerate = igkWondow;
             this._imainForm = imainForm;
@@ -38,6 +38,7 @@ namespace Rabin_Window
             _imainForm.GoToMenuClick += ImainForm_GoToMenuClick;
             _imainForm.ContentChanged += ImainForm_ContentChanged;
             _imainForm.FileSaveAsClick += _imainForm_FileSaveAsClick;
+            _imainForm.SecretKeyClick += _imainForm_SecretKeyClick;
 
             _imenuForm.GoToMainForm += _imenuForm_GoToMainForm;
             _imenuForm.GoToOpenKeyForm += _imenuForm_GoToOpenKeyForm;
@@ -45,14 +46,48 @@ namespace Rabin_Window
 
             _iopenkeyForm.GoToMenuClick += _iopenkeyForm_GoToMenuClick;
             _iopenkeyForm.FileSaveAsClick += _iopenkeyForm_FileSaveAsClick;
+            _iopenkeyForm.LoadOpneKeyFormFile += _iopenkeyForm_LoadOpneKeyFormFile;
 
             _iGenerate.PressOk += _iGenerate_PressOk;
         }
 
+        private void _iopenkeyForm_LoadOpneKeyFormFile(object sender, EventArgs e)
+        {
+            try
+            {
+                string readkeys = _manager.GetContent(_iopenkeyForm.pathToOpenKey);
+                _iopenkeyForm.OpenKey = BigInteger.Parse(readkeys);
+                _messageService.ShowMessage("Ключ успешно загружен");
+            }
+            catch
+            {
+                _messageService.ShowError("Неверный формат ключа");
+            }
+
+        }
+
+        private void _imainForm_SecretKeyClick(object sender, EventArgs e)
+        {
+            try
+            {
+                string[] readkeys = _manager.GetContent(_imainForm.SecretkeyPath).Split(' ');
+                _imainForm.SecretKeyOne = BigInteger.Parse(readkeys[0]);
+                _imainForm.SecretKeyTwo = BigInteger.Parse(readkeys[1]);
+                _messageService.ShowMessage("Ключ успешно загружен");
+            }
+            catch
+            {
+                _messageService.ShowError("Неверный формат ключей");
+            }
+
+        }
+
         private void _iGenerate_PressOk(object sender, EventArgs e)
         {
-            string keys2 = RabinLib.Rabin.gen2Keys(_iGenerate.Key1, _iGenerate.Key2);
-            _manager.SaveContent(keys2, _iGenerate.path);
+            string keys2 = RabinLib.Rabin.gen2Keys(int.Parse(_iGenerate.Key1), int.Parse(_iGenerate.Key2));
+            _manager.SaveContent(keys2, _iGenerate.pathSecretkey);
+            string OpKey = (BigInteger.Parse(keys2.Split(' ')[0]) * BigInteger.Parse(keys2.Split(' ')[1])) + "";
+            _manager.SaveContent(OpKey, _iGenerate.pathOpenKey);
             _iGenerate.CloseFrom();
             _imenuForm.ShowForm();
         }
@@ -137,7 +172,7 @@ namespace Rabin_Window
 
                 _currentFilePath = filepath;
 
-                
+
 
                 string Content = _manager.GetContent(_currentFilePath, _imainForm.SecretKeyOne, _imainForm.SecretKeyTwo);
 

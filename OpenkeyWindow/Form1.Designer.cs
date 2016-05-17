@@ -38,6 +38,7 @@
             this.lblByte = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblOpenkey = new System.Windows.Forms.Label();
             this.btnGoToMenu = new System.Windows.Forms.Button();
+            this.btnLoadOpneKeyFromFile = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,7 +48,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbtOpenKey.Location = new System.Drawing.Point(301, 12);
             this.tbtOpenKey.Name = "tbtOpenKey";
-            this.tbtOpenKey.Size = new System.Drawing.Size(671, 20);
+            this.tbtOpenKey.Size = new System.Drawing.Size(449, 20);
             this.tbtOpenKey.TabIndex = 0;
             this.tbtOpenKey.Text = "996178943546370874434617223229136763398160471277070982109844996503871352809714589" +
     "187947039619199549";
@@ -130,11 +131,23 @@
             this.btnGoToMenu.UseVisualStyleBackColor = true;
             this.btnGoToMenu.Click += new System.EventHandler(this.btnGoToMenu_Click);
             // 
+            // btnLoadOpneKeyFromFile
+            // 
+            this.btnLoadOpneKeyFromFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLoadOpneKeyFromFile.Location = new System.Drawing.Point(756, 9);
+            this.btnLoadOpneKeyFromFile.Name = "btnLoadOpneKeyFromFile";
+            this.btnLoadOpneKeyFromFile.Size = new System.Drawing.Size(216, 23);
+            this.btnLoadOpneKeyFromFile.TabIndex = 6;
+            this.btnLoadOpneKeyFromFile.Text = "Загрузить открытый ключ из файла";
+            this.btnLoadOpneKeyFromFile.UseVisualStyleBackColor = true;
+            this.btnLoadOpneKeyFromFile.Click += new System.EventHandler(this.btnLoadOpneKeyFromFile_Click);
+            // 
             // OpenKeyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 561);
+            this.Controls.Add(this.btnLoadOpneKeyFromFile);
             this.Controls.Add(this.btnGoToMenu);
             this.Controls.Add(this.lblOpenkey);
             this.Controls.Add(this.statusStrip1);
@@ -165,6 +178,7 @@
         private System.Windows.Forms.ToolStripStatusLabel lblByte;
         private System.Windows.Forms.Label lblOpenkey;
         private System.Windows.Forms.Button btnGoToMenu;
+        private System.Windows.Forms.Button btnLoadOpneKeyFromFile;
     }
 }
 

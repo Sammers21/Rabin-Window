@@ -14,6 +14,7 @@ namespace OpenkeyWindow
     public interface IOpenKeyForm
     {
         string path { get; set; }
+        string pathToOpenKey { get; set; }
         string Content { get; set; }
         BigInteger OpenKey { get; set; }
 
@@ -24,6 +25,7 @@ namespace OpenkeyWindow
 
         event EventHandler FileSaveAsClick;
         event EventHandler GoToMenuClick;
+        event EventHandler LoadOpneKeyFormFile;
     }
 
     public partial class OpenKeyForm : Form, IOpenKeyForm
@@ -63,6 +65,12 @@ namespace OpenkeyWindow
             set;
         }
 
+        public string pathToOpenKey
+        {
+            get;
+            set;
+        }
+
         public void SetSymbolCount(int count)
         {
             lblSymbolCount.Text = count + "";
@@ -86,6 +94,7 @@ namespace OpenkeyWindow
 
         public event EventHandler FileSaveAsClick;
         public event EventHandler GoToMenuClick;
+        public event EventHandler LoadOpneKeyFormFile;
         #endregion
         public OpenKeyForm()
         {
@@ -123,6 +132,20 @@ namespace OpenkeyWindow
                 GoToMenuClick(this, EventArgs.Empty);
         }
 
-       
+        private void btnLoadOpneKeyFromFile_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Открытый ключ|*.openkey";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                pathToOpenKey= openFileDialog.FileName;
+
+
+                if (LoadOpneKeyFormFile != null)
+                    LoadOpneKeyFormFile(this, EventArgs.Empty);
+
+            }
+        }
     }
 }

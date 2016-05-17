@@ -40,9 +40,9 @@
             this.lblTypeLegth.AutoSize = true;
             this.lblTypeLegth.Location = new System.Drawing.Point(28, 24);
             this.lblTypeLegth.Name = "lblTypeLegth";
-            this.lblTypeLegth.Size = new System.Drawing.Size(222, 13);
+            this.lblTypeLegth.Size = new System.Drawing.Size(99, 13);
             this.lblTypeLegth.TabIndex = 0;
-            this.lblTypeLegth.Text = "Введите длинну первого закрытого ключа";
+            this.lblTypeLegth.Text = "Введите длинну  p";
             // 
             // tbtKeyLength1
             // 
@@ -50,6 +50,7 @@
             this.tbtKeyLength1.Name = "tbtKeyLength1";
             this.tbtKeyLength1.Size = new System.Drawing.Size(61, 20);
             this.tbtKeyLength1.TabIndex = 1;
+            this.tbtKeyLength1.Text = "10";
             this.tbtKeyLength1.TextChanged += new System.EventHandler(this.tbtKeyLength1_TextChanged);
             // 
             // lblType2
@@ -57,9 +58,9 @@
             this.lblType2.AutoSize = true;
             this.lblType2.Location = new System.Drawing.Point(28, 106);
             this.lblType2.Name = "lblType2";
-            this.lblType2.Size = new System.Drawing.Size(221, 13);
+            this.lblType2.Size = new System.Drawing.Size(96, 13);
             this.lblType2.TabIndex = 2;
-            this.lblType2.Text = "Введите длинну второго закрытого ключа";
+            this.lblType2.Text = "Введите длинну q";
             // 
             // tbtkeylength2
             // 
@@ -67,6 +68,7 @@
             this.tbtkeylength2.Name = "tbtkeylength2";
             this.tbtkeylength2.Size = new System.Drawing.Size(61, 20);
             this.tbtkeylength2.TabIndex = 3;
+            this.tbtkeylength2.Text = "10";
             this.tbtkeylength2.TextChanged += new System.EventHandler(this.tbtkeylength2_TextChanged);
             // 
             // btnGENERATEMK

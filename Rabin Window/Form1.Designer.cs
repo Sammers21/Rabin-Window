@@ -46,13 +46,14 @@
             this.lblbyteCountNumber = new System.Windows.Forms.ToolStripStatusLabel();
             this.btnSaveAs = new System.Windows.Forms.Button();
             this.Worker = new System.ComponentModel.BackgroundWorker();
+            this.btnLoadKeyFromFile = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbtSecretKey1
             // 
             this.tbtSecretKey1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbtSecretKey1.Location = new System.Drawing.Point(756, 30);
+            this.tbtSecretKey1.Location = new System.Drawing.Point(756, 41);
             this.tbtSecretKey1.Name = "tbtSecretKey1";
             this.tbtSecretKey1.Size = new System.Drawing.Size(100, 20);
             this.tbtSecretKey1.TabIndex = 0;
@@ -61,7 +62,7 @@
             // tbtSecretKey2
             // 
             this.tbtSecretKey2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbtSecretKey2.Location = new System.Drawing.Point(872, 30);
+            this.tbtSecretKey2.Location = new System.Drawing.Point(872, 41);
             this.tbtSecretKey2.Name = "tbtSecretKey2";
             this.tbtSecretKey2.Size = new System.Drawing.Size(100, 20);
             this.tbtSecretKey2.TabIndex = 2;
@@ -84,7 +85,7 @@
             // 
             this.lblSecretKey1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblSecretKey1.AutoSize = true;
-            this.lblSecretKey1.Location = new System.Drawing.Point(760, 9);
+            this.lblSecretKey1.Location = new System.Drawing.Point(756, 23);
             this.lblSecretKey1.Name = "lblSecretKey1";
             this.lblSecretKey1.Size = new System.Drawing.Size(96, 13);
             this.lblSecretKey1.TabIndex = 4;
@@ -94,7 +95,7 @@
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(869, 9);
+            this.label2.Location = new System.Drawing.Point(876, 25);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(96, 13);
             this.label2.TabIndex = 5;
@@ -125,7 +126,7 @@
             // btnOpen
             // 
             this.btnOpen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOpen.Location = new System.Drawing.Point(621, 30);
+            this.btnOpen.Location = new System.Drawing.Point(563, 9);
             this.btnOpen.Name = "btnOpen";
             this.btnOpen.Size = new System.Drawing.Size(75, 23);
             this.btnOpen.TabIndex = 9;
@@ -137,15 +138,15 @@
             // 
             this.tbtFilePath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbtFilePath.Location = new System.Drawing.Point(98, 33);
+            this.tbtFilePath.Location = new System.Drawing.Point(98, 9);
             this.tbtFilePath.Name = "tbtFilePath";
-            this.tbtFilePath.Size = new System.Drawing.Size(436, 20);
+            this.tbtFilePath.Size = new System.Drawing.Size(378, 20);
             this.tbtFilePath.TabIndex = 10;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 35);
+            this.label1.Location = new System.Drawing.Point(9, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(83, 13);
             this.label1.TabIndex = 11;
@@ -154,7 +155,7 @@
             // btnChoose
             // 
             this.btnChoose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnChoose.Location = new System.Drawing.Point(540, 31);
+            this.btnChoose.Location = new System.Drawing.Point(482, 9);
             this.btnChoose.Name = "btnChoose";
             this.btnChoose.Size = new System.Drawing.Size(75, 23);
             this.btnChoose.TabIndex = 12;
@@ -209,11 +210,23 @@
             this.btnSaveAs.UseVisualStyleBackColor = true;
             this.btnSaveAs.Click += new System.EventHandler(this.btnSaveAs_Click);
             // 
+            // btnLoadKeyFromFile
+            // 
+            this.btnLoadKeyFromFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLoadKeyFromFile.Location = new System.Drawing.Point(563, 38);
+            this.btnLoadKeyFromFile.Name = "btnLoadKeyFromFile";
+            this.btnLoadKeyFromFile.Size = new System.Drawing.Size(187, 23);
+            this.btnLoadKeyFromFile.TabIndex = 15;
+            this.btnLoadKeyFromFile.Text = "загрузить ключ из файла";
+            this.btnLoadKeyFromFile.UseVisualStyleBackColor = true;
+            this.btnLoadKeyFromFile.Click += new System.EventHandler(this.btnLoadKeyFromFile_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 561);
+            this.Controls.Add(this.btnLoadKeyFromFile);
             this.Controls.Add(this.btnSaveAs);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.btnChoose);
@@ -260,6 +273,7 @@
         private System.Windows.Forms.Button btnSaveAs;
         private System.ComponentModel.BackgroundWorker Worker;
         private System.Windows.Forms.ProgressBar progresBar;
+        private System.Windows.Forms.Button btnLoadKeyFromFile;
     }
 }
 
