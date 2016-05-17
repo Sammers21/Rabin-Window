@@ -212,11 +212,17 @@ namespace Rabin_Window
 
         private void ImainForm_FileSaveClick(object sender, EventArgs e)
         {
-            string content = _imainForm.Content;
+            try {
+                string content = _imainForm.Content;
 
-            _manager.SaveContent(content, _currentFilePath, _imainForm.SecretKeyOne * _imainForm.SecretKeyTwo);
+                _manager.SaveContent(content, _currentFilePath, _imainForm.SecretKeyOne * _imainForm.SecretKeyTwo);
 
-            _messageService.ShowMessage("Файл успешно сохранён");
+                _messageService.ShowMessage("Файл успешно сохранён");
+            }
+            catch(Exception ex)
+            {
+                _messageService.ShowError("Не возможно сохранить файл по текущему пути");
+            }
         }
     }
 }
