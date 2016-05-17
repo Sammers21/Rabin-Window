@@ -14,6 +14,7 @@ namespace StartMenu
     {
         void ShowForm();
         void SkipForm();
+        void CloseFrom();
         event EventHandler GoToMainForm;
         event EventHandler GoToOpenKeyForm;
         event EventHandler GoToGenerateKeysWindow;
@@ -60,6 +61,11 @@ namespace StartMenu
         {
             if (GoToGenerateKeysWindow != null)
                 GoToGenerateKeysWindow(this, EventArgs.Empty);
+        }
+
+        public void CloseFrom()
+        {
+            this.Close();
         }
     }
 }

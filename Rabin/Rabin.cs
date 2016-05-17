@@ -95,7 +95,7 @@ namespace RabinLib
         /// </summary>
         /// <param name="Openkey">Открытый ключ</param>
         /// <returns>Размер максимального блока для шифрования</returns>
-        static BigInteger CalcylateByteSize(BigInteger Openkey)
+      public  static BigInteger CalcylateByteSize(BigInteger Openkey)
         {
             BigInteger x = 256, bytecount = 1;
 

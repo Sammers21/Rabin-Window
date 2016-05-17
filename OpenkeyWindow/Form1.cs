@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Numerics;
+using RabinLib;
 
 namespace OpenkeyWindow
 {
@@ -26,6 +27,7 @@ namespace OpenkeyWindow
         event EventHandler FileSaveAsClick;
         event EventHandler GoToMenuClick;
         event EventHandler LoadOpneKeyFormFile;
+        event EventHandler Close;
     }
 
     public partial class OpenKeyForm : Form, IOpenKeyForm
@@ -95,10 +97,50 @@ namespace OpenkeyWindow
         public event EventHandler FileSaveAsClick;
         public event EventHandler GoToMenuClick;
         public event EventHandler LoadOpneKeyFormFile;
+        public event EventHandler Close;
+
         #endregion
         public OpenKeyForm()
         {
+           
             InitializeComponent();
+
+            BigInteger n = OpenKey, f;
+
+            FormClosed += (object sender, FormClosedEventArgs e) =>
+            {
+                if (Close != null)
+                    Close(this, EventArgs.Empty);
+            };
+
+            tbtContent.TextChanged += (object sender, EventArgs e) =>
+            {
+                lblSymbolCount.Text = Content.Length + "";
+                lblByte.Text = Encoding.UTF8.GetBytes(Content).Length + " ";
+            };
+            tbtOpenKey.TextChanged += (object sender, EventArgs e) =>
+            {
+
+                try
+                {
+                    bool flag = BigInteger.TryParse(tbtOpenKey.Text, out f);
+                    if (!flag)
+                    {
+                        OpenKey = n;
+                        throw new Exception("Ключ должен состоять из цифр");
+                    }
+                    else
+                        n = OpenKey;
+
+                    lblKeyByteCount.Text = Rabin.CalcylateByteSize(OpenKey) + "";
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            };
+
+
         }
 
         private void lblOpenkey_Click(object sender, EventArgs e)
@@ -108,7 +150,7 @@ namespace OpenkeyWindow
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            lblKeyByteCount.Text = Rabin.CalcylateByteSize(OpenKey) + "";
         }
 
         private void butSave_Click(object sender, EventArgs e)
@@ -139,7 +181,7 @@ namespace OpenkeyWindow
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                pathToOpenKey= openFileDialog.FileName;
+                pathToOpenKey = openFileDialog.FileName;
 
 
                 if (LoadOpneKeyFormFile != null)

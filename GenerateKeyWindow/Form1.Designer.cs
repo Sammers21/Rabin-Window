@@ -33,12 +33,13 @@
             this.lblType2 = new System.Windows.Forms.Label();
             this.tbtkeylength2 = new System.Windows.Forms.TextBox();
             this.btnGENERATEMK = new System.Windows.Forms.Button();
+            this.btnGoToMenu = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblTypeLegth
             // 
             this.lblTypeLegth.AutoSize = true;
-            this.lblTypeLegth.Location = new System.Drawing.Point(28, 24);
+            this.lblTypeLegth.Location = new System.Drawing.Point(58, 103);
             this.lblTypeLegth.Name = "lblTypeLegth";
             this.lblTypeLegth.Size = new System.Drawing.Size(99, 13);
             this.lblTypeLegth.TabIndex = 0;
@@ -46,7 +47,7 @@
             // 
             // tbtKeyLength1
             // 
-            this.tbtKeyLength1.Location = new System.Drawing.Point(31, 52);
+            this.tbtKeyLength1.Location = new System.Drawing.Point(61, 151);
             this.tbtKeyLength1.Name = "tbtKeyLength1";
             this.tbtKeyLength1.Size = new System.Drawing.Size(61, 20);
             this.tbtKeyLength1.TabIndex = 1;
@@ -56,7 +57,7 @@
             // lblType2
             // 
             this.lblType2.AutoSize = true;
-            this.lblType2.Location = new System.Drawing.Point(28, 106);
+            this.lblType2.Location = new System.Drawing.Point(218, 103);
             this.lblType2.Name = "lblType2";
             this.lblType2.Size = new System.Drawing.Size(96, 13);
             this.lblType2.TabIndex = 2;
@@ -64,7 +65,7 @@
             // 
             // tbtkeylength2
             // 
-            this.tbtkeylength2.Location = new System.Drawing.Point(31, 131);
+            this.tbtkeylength2.Location = new System.Drawing.Point(233, 151);
             this.tbtkeylength2.Name = "tbtkeylength2";
             this.tbtkeylength2.Size = new System.Drawing.Size(61, 20);
             this.tbtkeylength2.TabIndex = 3;
@@ -81,11 +82,22 @@
             this.btnGENERATEMK.UseVisualStyleBackColor = true;
             this.btnGENERATEMK.Click += new System.EventHandler(this.button1_Click);
             // 
+            // btnGoToMenu
+            // 
+            this.btnGoToMenu.Location = new System.Drawing.Point(31, 25);
+            this.btnGoToMenu.Name = "btnGoToMenu";
+            this.btnGoToMenu.Size = new System.Drawing.Size(283, 63);
+            this.btnGoToMenu.TabIndex = 5;
+            this.btnGoToMenu.Text = "В меню";
+            this.btnGoToMenu.UseVisualStyleBackColor = true;
+            this.btnGoToMenu.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(334, 291);
+            this.Controls.Add(this.btnGoToMenu);
             this.Controls.Add(this.btnGENERATEMK);
             this.Controls.Add(this.tbtkeylength2);
             this.Controls.Add(this.lblType2);
@@ -95,7 +107,8 @@
             this.MinimumSize = new System.Drawing.Size(350, 330);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Генерация ключа";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -108,6 +121,7 @@
         private System.Windows.Forms.Label lblType2;
         private System.Windows.Forms.TextBox tbtkeylength2;
         private System.Windows.Forms.Button btnGENERATEMK;
+        private System.Windows.Forms.Button btnGoToMenu;
     }
 }
 

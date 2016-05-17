@@ -32,6 +32,7 @@ namespace Rabin_Window
         event EventHandler GoToMenuClick;
         event EventHandler FileSaveAsClick;
         event EventHandler SecretKeyClick;
+        event EventHandler CloseForm;
 
     }
 
@@ -92,6 +93,7 @@ namespace Rabin_Window
         public event EventHandler GoToMenuClick;
         public event EventHandler FileSaveAsClick;
         public event EventHandler SecretKeyClick;
+        public event EventHandler CloseForm;
 
         public void SetSymbolCount(int count)
         {
@@ -113,11 +115,11 @@ namespace Rabin_Window
 
         public MainForm()
         {
+
             InitializeComponent();
 
 
         }
-
 
         private void toolStripStatusLabel1_Click(object sender, EventArgs e)
         {
@@ -169,7 +171,78 @@ namespace Rabin_Window
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            lblKeyByteCount.Text = RabinLib.Rabin.CalcylateByteSize(SecretKeyOne * SecretKeyTwo) + "";
 
+            this.FormClosed += (object Sender, FormClosedEventArgs ex) =>
+            {
+                if (CloseForm != null)
+                    CloseForm(this, EventArgs.Empty);
+            };
+            BigInteger p = SecretKeyOne, q = SecretKeyTwo, f, h;
+
+
+            tbtSecretKey1.TextChanged += (object Sender, EventArgs E) =>
+            {
+
+                try
+                {
+                    bool flag = BigInteger.TryParse(tbtSecretKey1.Text, out f);
+                    if (!flag)
+                    {
+                        tbtSecretKey1.Text = p + "";
+                        throw new Exception("Ключ должен состоять из цифр");
+                    }
+                    else if (!RabinLib.Rabin.Miller_Rabin_Test(f))
+                    {
+                        tbtSecretKey1.Text = p + "";
+                        throw new Exception("Ключ должен быть простым");
+                    }
+                    else
+                    {
+                        p = SecretKeyOne;
+                    }
+               
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    lblKeyByteCount.Text = RabinLib.Rabin.CalcylateByteSize(p * q) + "";
+                }
+            };
+            tbtSecretKey2.TextChanged += (object Sender, EventArgs E) =>
+            {
+
+                try
+                {
+                    bool flag = BigInteger.TryParse(tbtSecretKey2.Text, out h);
+                    if (!flag)
+                    {
+                        tbtSecretKey2.Text = q + "";
+                        throw new Exception("Ключ должен состоять из цифр");
+                    }
+                    else if (!RabinLib.Rabin.Miller_Rabin_Test(h))
+                    {
+                        tbtSecretKey2.Text = q + "";
+                        throw new Exception("Ключ должен быть простым");
+                    }
+                    else
+                    {
+                        q = SecretKeyTwo;
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    lblKeyByteCount.Text = RabinLib.Rabin.CalcylateByteSize(p * q) + "";
+                }
+            };
         }
 
         private void btnSaveAs_Click(object sender, EventArgs e)

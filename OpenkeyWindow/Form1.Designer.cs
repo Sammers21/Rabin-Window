@@ -39,6 +39,8 @@
             this.lblOpenkey = new System.Windows.Forms.Label();
             this.btnGoToMenu = new System.Windows.Forms.Button();
             this.btnLoadOpneKeyFromFile = new System.Windows.Forms.Button();
+            this.ConstKeyByte = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblKeyByteCount = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -80,7 +82,9 @@
             this.lblSymbolCountConst,
             this.lblSymbolCount,
             this.lblByteCountConst,
-            this.lblByte});
+            this.lblByte,
+            this.ConstKeyByte,
+            this.lblKeyByteCount});
             this.statusStrip1.Location = new System.Drawing.Point(0, 539);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(984, 22);
@@ -142,6 +146,18 @@
             this.btnLoadOpneKeyFromFile.UseVisualStyleBackColor = true;
             this.btnLoadOpneKeyFromFile.Click += new System.EventHandler(this.btnLoadOpneKeyFromFile_Click);
             // 
+            // ConstKeyByte
+            // 
+            this.ConstKeyByte.Name = "ConstKeyByte";
+            this.ConstKeyByte.Size = new System.Drawing.Size(188, 17);
+            this.ConstKeyByte.Text = "Размер блока байтов для ключа:";
+            // 
+            // lblKeyByteCount
+            // 
+            this.lblKeyByteCount.Name = "lblKeyByteCount";
+            this.lblKeyByteCount.Size = new System.Drawing.Size(13, 17);
+            this.lblKeyByteCount.Text = "0";
+            // 
             // OpenKeyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -179,6 +195,8 @@
         private System.Windows.Forms.Label lblOpenkey;
         private System.Windows.Forms.Button btnGoToMenu;
         private System.Windows.Forms.Button btnLoadOpneKeyFromFile;
+        private System.Windows.Forms.ToolStripStatusLabel ConstKeyByte;
+        private System.Windows.Forms.ToolStripStatusLabel lblKeyByteCount;
     }
 }
 

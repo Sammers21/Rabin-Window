@@ -7,6 +7,7 @@ using Rabin_Window.BL;
 using StartMenu;
 using OpenkeyWindow;
 using GenerateKeyWindow;
+using System.Windows.Forms;
 
 namespace Rabin_Window
 {
@@ -39,16 +40,31 @@ namespace Rabin_Window
             _imainForm.ContentChanged += ImainForm_ContentChanged;
             _imainForm.FileSaveAsClick += _imainForm_FileSaveAsClick;
             _imainForm.SecretKeyClick += _imainForm_SecretKeyClick;
+            _imainForm.CloseForm += CloseProg;
 
             _imenuForm.GoToMainForm += _imenuForm_GoToMainForm;
             _imenuForm.GoToOpenKeyForm += _imenuForm_GoToOpenKeyForm;
             _imenuForm.GoToGenerateKeysWindow += _imenuForm_GoToGenerateKeysWindow;
 
+
             _iopenkeyForm.GoToMenuClick += _iopenkeyForm_GoToMenuClick;
             _iopenkeyForm.FileSaveAsClick += _iopenkeyForm_FileSaveAsClick;
             _iopenkeyForm.LoadOpneKeyFormFile += _iopenkeyForm_LoadOpneKeyFormFile;
+            _iopenkeyForm.Close += CloseProg;
 
             _iGenerate.PressOk += _iGenerate_PressOk;
+            _iGenerate.GoHome += _iGenerate_GoHome;
+            _iGenerate.CloseForm += CloseProg;
+        }
+        private void CloseProg(object sender, EventArgs e)
+        {
+            _imenuForm.CloseFrom();
+        }
+
+        private void _iGenerate_GoHome(object sender, EventArgs e)
+        {
+            _iGenerate.SkipFrom();
+            _imenuForm.ShowForm();
         }
 
         private void _iopenkeyForm_LoadOpneKeyFormFile(object sender, EventArgs e)
@@ -88,7 +104,7 @@ namespace Rabin_Window
             _manager.SaveContent(keys2, _iGenerate.pathSecretkey);
             string OpKey = (BigInteger.Parse(keys2.Split(' ')[0]) * BigInteger.Parse(keys2.Split(' ')[1])) + "";
             _manager.SaveContent(OpKey, _iGenerate.pathOpenKey);
-            _iGenerate.CloseFrom();
+            _iGenerate.SkipFrom();
             _imenuForm.ShowForm();
         }
 

@@ -19,15 +19,22 @@ namespace GenerateKeyWindow
         String pathSecretkey { get; set; }
 
         void ShowForm();
-        void CloseFrom();
+        void SkipFrom();
+     
 
 
 
         event EventHandler PressOk;
+        event EventHandler GoHome;
+        event EventHandler CloseForm;
     }
     public partial class Form1 : Form, IGenerateKeyWindow
     {
+
+        int saveconst1 = 0, saveconst2 = 0;
+
         public String pathOpenKey { get; set; }
+
         public String pathSecretkey { get; set; }
 
         public string Key1
@@ -41,6 +48,7 @@ namespace GenerateKeyWindow
                 tbtKeyLength1.Text = value;
             }
         }
+
         public string Key2
         {
             get
@@ -56,9 +64,13 @@ namespace GenerateKeyWindow
         public Form1()
         {
             InitializeComponent();
+            saveconst1 = int.Parse(Key1);
+            saveconst2 = int.Parse(Key2);
         }
 
         public event EventHandler PressOk;
+        public event EventHandler GoHome;
+        public event EventHandler CloseForm;
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -77,7 +89,7 @@ namespace GenerateKeyWindow
             if (saveFileDialog2.ShowDialog() == DialogResult.OK)
             {
                 pathOpenKey = saveFileDialog2.FileName;
-                if(PressOk!=null)
+                if (PressOk != null)
                 {
                     PressOk(this, EventArgs.Empty);
                 }
@@ -86,33 +98,89 @@ namespace GenerateKeyWindow
 
         private void tbtkeylength2_TextChanged(object sender, EventArgs e)
         {
-            if (int.Parse(Key1) > 50)
+            try
             {
-                Key1 = 10+"";
-                MessageBox.Show("Слишком большое количество симовов в ключе", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                if (int.Parse(Key2) > 50 || int.Parse(Key2) < 3)
+                {
+                    Key2 = saveconst2+ "";
+                    MessageBox.Show("Слишком большое количество симовов в ключе", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else if (int.Parse(Key2) < 3)
+                {
+
+                    Key2 = saveconst2 + "";
+                    MessageBox.Show("Слишком маленькое количество симовов в ключе", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+                else
+                {
+                    saveconst2 = int.Parse(Key2);
+                }
+            }
+            catch (Exception ex)
+            {
+                Key2 = saveconst2 + "";
+                MessageBox.Show("В это текстовое поле следует вводить число", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
         }
 
         private void tbtKeyLength1_TextChanged(object sender, EventArgs e)
         {
-            if (int.Parse(Key2) > 50)
+            try
             {
-                Key2 = 10+"";
-                MessageBox.Show("Слишком большое количество симовов в ключе", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (int.Parse(Key1) > 50)
+                {
+                    Key1 =saveconst1 + "";
+                    MessageBox.Show("Слишком большое количество симовов в ключе", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else if (int.Parse(Key1) < 3)
+                {
+
+                    Key1 =saveconst1 + "";
+                    MessageBox.Show("Слишком маленькое количество симовов в ключе", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+                else
+                {
+                    saveconst1 = int.Parse(Key1);
+                }
+            }
+            catch (Exception ex)
+            {
+                Key1 = saveconst1 + "";
+                MessageBox.Show("В это текстовое поле следует вводить число", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
         }
 
         public void ShowForm()
         {
             Visible = true;
-            Key1 = 10+"";
-            Key2 = 10+"";
+            Key1 =saveconst1 + "";
+            Key2 = saveconst2 + "";
         }
 
-        public void CloseFrom()
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            if (GoHome != null)
+                GoHome(this, EventArgs.Empty);
+        }
+
+        public void SkipFrom()
         {
             Visible = false;
         }
-     
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            this.FormClosed += (object Sender, FormClosedEventArgs ex) =>
+              {
+                  if (CloseForm != null)
+                      CloseForm(this, EventArgs.Empty);
+              };
+        }
+
     }
 }
