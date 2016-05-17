@@ -39,7 +39,7 @@
             // lblTypeLegth
             // 
             this.lblTypeLegth.AutoSize = true;
-            this.lblTypeLegth.Location = new System.Drawing.Point(58, 103);
+            this.lblTypeLegth.Location = new System.Drawing.Point(28, 103);
             this.lblTypeLegth.Name = "lblTypeLegth";
             this.lblTypeLegth.Size = new System.Drawing.Size(99, 13);
             this.lblTypeLegth.TabIndex = 0;
@@ -47,7 +47,7 @@
             // 
             // tbtKeyLength1
             // 
-            this.tbtKeyLength1.Location = new System.Drawing.Point(61, 151);
+            this.tbtKeyLength1.Location = new System.Drawing.Point(31, 151);
             this.tbtKeyLength1.Name = "tbtKeyLength1";
             this.tbtKeyLength1.Size = new System.Drawing.Size(61, 20);
             this.tbtKeyLength1.TabIndex = 1;
@@ -65,7 +65,7 @@
             // 
             // tbtkeylength2
             // 
-            this.tbtkeylength2.Location = new System.Drawing.Point(233, 151);
+            this.tbtkeylength2.Location = new System.Drawing.Point(253, 151);
             this.tbtkeylength2.Name = "tbtkeylength2";
             this.tbtkeylength2.Size = new System.Drawing.Size(61, 20);
             this.tbtkeylength2.TabIndex = 3;
