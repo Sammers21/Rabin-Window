@@ -39,7 +39,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.button1.Location = new System.Drawing.Point(27, 12);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(337, 295);
+            this.button1.Size = new System.Drawing.Size(340, 302);
             this.button1.TabIndex = 0;
             this.button1.Text = "У меня есть открытый ключ";
             this.button1.UseVisualStyleBackColor = true;
@@ -51,7 +51,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnGoToRabin.Location = new System.Drawing.Point(632, 12);
             this.btnGoToRabin.Name = "btnGoToRabin";
-            this.btnGoToRabin.Size = new System.Drawing.Size(340, 295);
+            this.btnGoToRabin.Size = new System.Drawing.Size(340, 302);
             this.btnGoToRabin.TabIndex = 1;
             this.btnGoToRabin.Text = "У меня есть закрытый ключ";
             this.btnGoToRabin.UseVisualStyleBackColor = true;
@@ -61,9 +61,9 @@
             // 
             this.btnGenKeys.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnGenKeys.Location = new System.Drawing.Point(260, 428);
+            this.btnGenKeys.Location = new System.Drawing.Point(27, 344);
             this.btnGenKeys.Name = "btnGenKeys";
-            this.btnGenKeys.Size = new System.Drawing.Size(459, 121);
+            this.btnGenKeys.Size = new System.Drawing.Size(945, 205);
             this.btnGenKeys.TabIndex = 2;
             this.btnGenKeys.Text = "Сгенерировать закрытый и открытый ключ";
             this.btnGenKeys.UseVisualStyleBackColor = true;

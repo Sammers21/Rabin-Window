@@ -44,17 +44,16 @@
             this.lblNuberCount = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblNumberByteConutConst = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblbyteCountNumber = new System.Windows.Forms.ToolStripStatusLabel();
+            this.ConstlblKeyByte = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblKeyByteCount = new System.Windows.Forms.ToolStripStatusLabel();
             this.btnSaveAs = new System.Windows.Forms.Button();
             this.Worker = new System.ComponentModel.BackgroundWorker();
             this.btnLoadKeyFromFile = new System.Windows.Forms.Button();
-            this.ConstlblKeyByte = new System.Windows.Forms.ToolStripStatusLabel();
-            this.lblKeyByteCount = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbtSecretKey1
             // 
-            this.tbtSecretKey1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.tbtSecretKey1.Location = new System.Drawing.Point(205, 44);
             this.tbtSecretKey1.Name = "tbtSecretKey1";
             this.tbtSecretKey1.Size = new System.Drawing.Size(363, 20);
@@ -63,7 +62,8 @@
             // 
             // tbtSecretKey2
             // 
-            this.tbtSecretKey2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbtSecretKey2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tbtSecretKey2.Location = new System.Drawing.Point(574, 44);
             this.tbtSecretKey2.Name = "tbtSecretKey2";
             this.tbtSecretKey2.Size = new System.Drawing.Size(398, 20);
@@ -85,7 +85,6 @@
             // 
             // lblSecretKey1
             // 
-            this.lblSecretKey1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblSecretKey1.AutoSize = true;
             this.lblSecretKey1.Location = new System.Drawing.Point(320, 28);
             this.lblSecretKey1.Name = "lblSecretKey1";
@@ -95,7 +94,8 @@
             // 
             // label2
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(686, 28);
             this.label2.Name = "label2";
@@ -203,6 +203,18 @@
             this.lblbyteCountNumber.Name = "lblbyteCountNumber";
             this.lblbyteCountNumber.Size = new System.Drawing.Size(0, 17);
             // 
+            // ConstlblKeyByte
+            // 
+            this.ConstlblKeyByte.Name = "ConstlblKeyByte";
+            this.ConstlblKeyByte.Size = new System.Drawing.Size(175, 17);
+            this.ConstlblKeyByte.Text = "Размер блока байт для ключа:";
+            // 
+            // lblKeyByteCount
+            // 
+            this.lblKeyByteCount.Name = "lblKeyByteCount";
+            this.lblKeyByteCount.Size = new System.Drawing.Size(13, 17);
+            this.lblKeyByteCount.Text = "0";
+            // 
             // btnSaveAs
             // 
             this.btnSaveAs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -216,7 +228,6 @@
             // 
             // btnLoadKeyFromFile
             // 
-            this.btnLoadKeyFromFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnLoadKeyFromFile.Location = new System.Drawing.Point(12, 41);
             this.btnLoadKeyFromFile.Name = "btnLoadKeyFromFile";
             this.btnLoadKeyFromFile.Size = new System.Drawing.Size(187, 23);
@@ -224,18 +235,6 @@
             this.btnLoadKeyFromFile.Text = "Загрузить ключ из файла";
             this.btnLoadKeyFromFile.UseVisualStyleBackColor = true;
             this.btnLoadKeyFromFile.Click += new System.EventHandler(this.btnLoadKeyFromFile_Click);
-            // 
-            // ConstlblKeyByte
-            // 
-            this.ConstlblKeyByte.Name = "ConstlblKeyByte";
-            this.ConstlblKeyByte.Size = new System.Drawing.Size(175, 17);
-            this.ConstlblKeyByte.Text = "Размер блока байт для ключа:";
-            // 
-            // lblKeyByteCount
-            // 
-            this.lblKeyByteCount.Name = "lblKeyByteCount";
-            this.lblKeyByteCount.Size = new System.Drawing.Size(13, 17);
-            this.lblKeyByteCount.Text = "0";
             // 
             // MainForm
             // 
@@ -256,7 +255,7 @@
             this.Controls.Add(this.tbtContent);
             this.Controls.Add(this.tbtSecretKey2);
             this.Controls.Add(this.tbtSecretKey1);
-            this.MinimumSize = new System.Drawing.Size(660, 360);
+            this.MinimumSize = new System.Drawing.Size(810, 360);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Rabin Window";
