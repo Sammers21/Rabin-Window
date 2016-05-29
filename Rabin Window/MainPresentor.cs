@@ -201,7 +201,7 @@ namespace Rabin_Window
             catch (Exception ex)
             {
 
-                _messageService.ShowError(ex.Message);
+                _messageService.ShowError("Ошибка чтения файла. Возможно вы используете не тот ключ либо шифротекст был искажён");
             }
             finally
             {
