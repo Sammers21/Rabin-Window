@@ -8,6 +8,9 @@ using StartMenu;
 using OpenkeyWindow;
 using GenerateKeyWindow;
 using System.Windows.Forms;
+using System.Threading.Tasks;
+using System.Threading;
+using System.IO;
 
 namespace Rabin_Window
 {
@@ -24,6 +27,8 @@ namespace Rabin_Window
 
         public MainPresentor(IMainForm imainForm, IFileManager _manager, IMessageService _messageService, IMenuForm imenuForm, IOpenKeyForm iopenkey, IGenerateKeyWindow igkWondow)
         {
+            RabinLib.Rabin.DecBig += Rabin_DecBig;
+
             _iGenerate = igkWondow;
             this._imainForm = imainForm;
             this._manager = _manager;
@@ -55,6 +60,11 @@ namespace Rabin_Window
             _iGenerate.PressOk += _iGenerate_PressOk;
             _iGenerate.GoHome += _iGenerate_GoHome;
             _iGenerate.CloseForm += CloseProg;
+        }
+
+        void Rabin_DecBig(int obj)
+        {
+            _imainForm.BarValue = obj;
         }
         private void CloseProg(object sender, EventArgs e)
         {
@@ -170,7 +180,7 @@ namespace Rabin_Window
 
         }
 
-        private void ImainForm_FileOpenClick(object sender, EventArgs e)
+        private async void ImainForm_FileOpenClick(object sender, EventArgs e)
         {
             try
             {
@@ -188,15 +198,25 @@ namespace Rabin_Window
 
                 _currentFilePath = filepath;
 
+                _imainForm.Maxval = File.ReadAllLines(_currentFilePath, Encoding.Default).Length+1;
 
+                Progress<int> prog = new Progress<int>(s =>
+                {
+                    _imainForm.BarValue = s;
+                    _imainForm.BarValue = s+1;
+                });
 
-                string Content = _manager.GetContent(_currentFilePath, _imainForm.SecretKeyOne, _imainForm.SecretKeyTwo);
+                string Content = await Task<string>.Factory.StartNew(() =>
+                {
+                    return _manager.GetContent(_currentFilePath, _imainForm.SecretKeyOne, _imainForm.SecretKeyTwo, prog);
+                });
 
                 int count = _manager.GetSymbloCount(Content);
 
                 _imainForm.Content = Content;
                 _imainForm.SetSymbolCount(count);
 
+                _imainForm.BarValue = 0;
             }
             catch (Exception ex)
             {
@@ -212,14 +232,15 @@ namespace Rabin_Window
 
         private void ImainForm_FileSaveClick(object sender, EventArgs e)
         {
-            try {
+            try
+            {
                 string content = _imainForm.Content;
 
                 _manager.SaveContent(content, _currentFilePath, _imainForm.SecretKeyOne * _imainForm.SecretKeyTwo);
 
                 _messageService.ShowMessage("Файл успешно сохранён");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 _messageService.ShowError("Не возможно сохранить файл по текущему пути");
             }

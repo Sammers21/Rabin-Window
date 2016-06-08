@@ -1,8 +1,11 @@
 ﻿using System.IO;
+using System;
 using System.Text;
 using RabinLib;
 using System.Numerics;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 namespace Rabin_Window.BL
 {
     public interface IFileManager
@@ -10,11 +13,13 @@ namespace Rabin_Window.BL
         bool isExist(string filepath);
         void SaveContent(string content, string filepath);
         string GetContent(string path);
-        string GetContent(string path, BigInteger SecretKeyOne, BigInteger SecretKeyTwo);
+        string GetContent(string path, BigInteger SecretKeyOne, BigInteger SecretKeyTwo, IProgress<int> prg);
+     
         string GetContent(string path, Encoding encoding, BigInteger SecretKeyOne, BigInteger SecretKeyTwo);
         void SaveContent(string content, string filepath, BigInteger OpenKey);
         void SaveContent(string content, string filepath, Encoding encoding, BigInteger OpenKey);
         int GetSymbloCount(string content);
+
     }
 
     public class FileManager : IFileManager
@@ -41,6 +46,15 @@ namespace Rabin_Window.BL
             BigInteger[] conten = File.ReadAllLines(path, encoding).Select(p => BigInteger.Parse(p)).ToArray();
 
             string result = Rabin.DecryptionBigText(conten, SecretKeyOne, SecretKeyTwo);
+
+            return result;
+        }
+
+        public string GetContent(string path, BigInteger SecretKeyOne, BigInteger SecretKeyTwo,IProgress<int> prg)
+        {
+            BigInteger[] conten = File.ReadAllLines(path, _defaultEncoding).Select(p => BigInteger.Parse(p)).ToArray() ;
+
+            string result = Rabin.DecryptionBigText(conten, SecretKeyOne, SecretKeyTwo, prg);
 
             return result;
         }

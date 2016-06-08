@@ -46,6 +46,7 @@
             this.lblbyteCountNumber = new System.Windows.Forms.ToolStripStatusLabel();
             this.ConstlblKeyByte = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblKeyByteCount = new System.Windows.Forms.ToolStripStatusLabel();
+            this.ProgBar = new System.Windows.Forms.ToolStripProgressBar();
             this.btnSaveAs = new System.Windows.Forms.Button();
             this.Worker = new System.ComponentModel.BackgroundWorker();
             this.btnLoadKeyFromFile = new System.Windows.Forms.Button();
@@ -173,7 +174,8 @@
             this.lblNumberByteConutConst,
             this.lblbyteCountNumber,
             this.ConstlblKeyByte,
-            this.lblKeyByteCount});
+            this.lblKeyByteCount,
+            this.ProgBar});
             this.statusStrip1.Location = new System.Drawing.Point(0, 539);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(984, 22);
@@ -214,6 +216,11 @@
             this.lblKeyByteCount.Name = "lblKeyByteCount";
             this.lblKeyByteCount.Size = new System.Drawing.Size(13, 17);
             this.lblKeyByteCount.Text = "0";
+            // 
+            // ProgBar
+            // 
+            this.ProgBar.Name = "ProgBar";
+            this.ProgBar.Size = new System.Drawing.Size(100, 16);
             // 
             // btnSaveAs
             // 
@@ -291,6 +298,7 @@
         private System.Windows.Forms.Button btnLoadKeyFromFile;
         private System.Windows.Forms.ToolStripStatusLabel ConstlblKeyByte;
         private System.Windows.Forms.ToolStripStatusLabel lblKeyByteCount;
+        public System.Windows.Forms.ToolStripProgressBar ProgBar;
     }
 }
 

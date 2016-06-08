@@ -7,9 +7,12 @@ namespace RabinLib
 {
     //делегат использующийся в коде
     delegate bool SignatyreVert(BigInteger key);
+    delegate int Reportprg();
+
 
     public static class Rabin
     {
+        public static event Action<int> DecBig;
         /// <summary>
         /// переменная для полуения случайных чисел
         /// </summary>
@@ -71,17 +74,45 @@ namespace RabinLib
         public static string DecryptionBigText(BigInteger[] Text, BigInteger q, BigInteger p)
         {
 
+            int i = 1;
             List<byte> bytelist = new List<byte>();
 
             foreach (BigInteger b in Text)
             {
-
+                DecBig(i);
                 byte[] cur = DecryptionBytes(b, q, p);
 
                 foreach (byte by in cur)
                 {
                     bytelist.Add(by);
                 }
+                i++;
+
+            }
+
+
+
+
+            return Encoding.UTF8.GetString(bytelist.ToArray());
+        }
+
+        public static string DecryptionBigText(BigInteger[] Text, BigInteger q, BigInteger p, IProgress<int> prg)
+        {
+
+            int i = 1;
+            List<byte> bytelist = new List<byte>();
+
+            foreach (BigInteger b in Text)
+            {
+                prg.Report(i);
+                byte[] cur = DecryptionBytes(b, q, p);
+
+                foreach (byte by in cur)
+                {
+                    bytelist.Add(by);
+                }
+                i++;
+
             }
 
 
@@ -95,7 +126,7 @@ namespace RabinLib
         /// </summary>
         /// <param name="Openkey">Открытый ключ</param>
         /// <returns>Размер максимального блока для шифрования</returns>
-      public  static BigInteger CalcylateByteSize(BigInteger Openkey)
+        public static BigInteger CalcylateByteSize(BigInteger Openkey)
         {
             BigInteger x = 256, bytecount = 1;
 
@@ -206,12 +237,12 @@ namespace RabinLib
             return (ConvToStringWithBit(message));
 
         }/// <summary>
-         /// Деширование
-         /// </summary>
-         /// <param name="TextC">Зашифрованный текст</param>
-         /// <param name="q">Простое число q. Один из закрытых ключей</param>
-         /// <param name="p">Простое число p. Один из закрытых ключей</param>
-         /// <returns>Расшифрованный текст</returns>
+        /// Деширование
+        /// </summary>
+        /// <param name="TextC">Зашифрованный текст</param>
+        /// <param name="q">Простое число q. Один из закрытых ключей</param>
+        /// <param name="p">Простое число p. Один из закрытых ключей</param>
+        /// <returns>Расшифрованный текст</returns>
         public static byte[] DecryptionBytes(BigInteger TextC, BigInteger q, BigInteger p)
         {
 
@@ -406,7 +437,7 @@ namespace RabinLib
                 throw new Exception("Ошибка в проверке подписи");
 
 
-            SignatyreVert Vetif = delegate (BigInteger si)
+            SignatyreVert Vetif = delegate(BigInteger si)
               {
                   if ((si - 6) % 16 == 0)
                       return true;
@@ -959,7 +990,7 @@ namespace RabinLib
 
         public static string GeneRateKey(int symbCount)
         {
-            bool rx=false;
+            bool rx = false;
 
 
             string rs = "";

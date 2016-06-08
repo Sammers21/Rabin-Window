@@ -13,6 +13,8 @@ namespace Rabin_Window
 {
     interface IMainForm
     {
+        int Maxval { get; set; }
+        int BarValue { get; set; }
         string FilePath { get; }
         string SecretkeyPath { get; set; }
         string Content { get; set; }
@@ -39,6 +41,32 @@ namespace Rabin_Window
     public partial class MainForm : Form, IMainForm
     {
         #region IMainForm
+
+        public int Maxval
+        {
+            get
+            {
+                return ProgBar.Maximum;
+
+            }
+            set
+            {
+                ProgBar.Maximum = value;
+            }
+        }
+
+        public int BarValue
+        {
+            get
+            {
+
+                return ProgBar.Value;
+            }
+            set
+            {
+                ProgBar.Value = value;
+            }
+        }
         public string Content
         {
             get
@@ -126,7 +154,7 @@ namespace Rabin_Window
 
         }
 
-        private void btnChoose_Click(object sender, EventArgs e)
+        private  void btnChoose_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "Текстовые файлы|*.txt|Все файлы|*.*";
@@ -171,6 +199,9 @@ namespace Rabin_Window
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            
+            ProgBar.Minimum = 0;
+            ProgBar.Maximum = 100;
             lblKeyByteCount.Text = RabinLib.Rabin.CalcylateByteSize(SecretKeyOne * SecretKeyTwo) + "";
 
             this.FormClosed += (object Sender, FormClosedEventArgs ex) =>
@@ -201,7 +232,7 @@ namespace Rabin_Window
                     {
                         p = SecretKeyOne;
                     }
-               
+
                 }
                 catch (Exception ex)
                 {
