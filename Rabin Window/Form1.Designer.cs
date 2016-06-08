@@ -220,7 +220,7 @@
             // ProgBar
             // 
             this.ProgBar.Name = "ProgBar";
-            this.ProgBar.Size = new System.Drawing.Size(100, 16);
+            this.ProgBar.Size = new System.Drawing.Size(200, 16);
             // 
             // btnSaveAs
             // 
